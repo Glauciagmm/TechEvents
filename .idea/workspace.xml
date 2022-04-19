@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="608e6c55-c4fd-4cc1-87ca-e897bb20e9a7" name="Changes" comment="" />
+    <list default="true" id="98dde3cb-a7f2-4289-9d2b-ea1ef97b6dda" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,20 +13,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="280srN1JXNDkTlcKXeiEhnCCHhd" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="28195UBW2T2NVMqlBsmgmuarMK3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -40,22 +35,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Glaucia\Desktop\techevents\src\main\resources\static\css\css" />
-      <recent name="C:\Users\Glaucia\Desktop\techevents\src\main\resources\template\plantilla" />
-      <recent name="C:\Users\Glaucia\Desktop\techevents\src\main\resources\static\css" />
-      <recent name="C:\Users\Glaucia\Desktop\techevents\src\main\resources\static" />
-      <recent name="C:\Users\Glaucia\Desktop\techevents\src\main\resources\template" />
-    </key>
   </component>
   <component name="RunManager">
     <configuration name="TecheventsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="techevents" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.techevents.TecheventsApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.techevents.techevents.TecheventsApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -64,12 +48,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="608e6c55-c4fd-4cc1-87ca-e897bb20e9a7" name="Changes" comment="" />
-      <created>1650365039581</created>
+      <changelist id="98dde3cb-a7f2-4289-9d2b-ea1ef97b6dda" name="Changes" comment="" />
+      <created>1650373049353</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1650365039581</updated>
-      <workItem from="1650365042458" duration="3044000" />
+      <updated>1650373049353</updated>
+      <workItem from="1650373051749" duration="832000" />
     </task>
     <servers />
   </component>
