@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98dde3cb-a7f2-4289-9d2b-ea1ef97b6dda" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/views/borrame.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/views/borrame.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/techevents.iml" beforeDir="false" afterPath="$PROJECT_DIR$/techevents.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,12 +29,14 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="28195UBW2T2NVMqlBsmgmuarMK3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RESTKit.sync" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -40,6 +44,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
@@ -63,6 +71,7 @@
       <workItem from="1650376409657" duration="63000" />
       <workItem from="1650439507179" duration="630000" />
       <workItem from="1650870399390" duration="1509000" />
+      <workItem from="1650875150486" duration="1635000" />
     </task>
     <servers />
   </component>
