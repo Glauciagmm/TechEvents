@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template.html :: head">
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<header th:replace="plantilla/template.html :: header">
+
+</header>
+
+<!--Contenido -->
+<div class="container">
+    <h1 th:text="${titulo}"></h1>
+</div>
+<div class="container">
+    <a class="btn btn-primary btn-sm" th:href="@{/views/cursos/create}"
+       th:text="'Nuevo Cliente'" title="Crear nuevo Registro">
+    </a>
+    <table class="table caption-top">
+        <caption>List of Curses</caption>
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Número Participantes</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Destacado</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cl:${curso}">
+            <th scope="row" th:text="${cl.id}"></th>
+            <td th:text="${cl.tipo}"></td>
+            <td th:text="${cl.nombre}"></td>
+            <td th:text="${cl.fecha}"></td>
+            <td th:text="${cl.imagen}"></td>
+            <td th:text="${cl.numeroParticipantes}"></td>
+            <td th:text="${cl.descripción}"></td>
+            <td th:text="${cl.destacado}"></td>
+
+            <td>
+                <a class="btn btn-danger btn-sm" th:href="@{/views/cursos/destacar/}+${cl.id}"
+                   th:text="'Destacar'" title="Destacar Registro">
+                </a>
+            </td>
+
+            <td>
+                <a class="btn btn-success btn-sm" th:href="@{/views/cursos/edit/}+${cl.id}"
+                   th:text="'Editar'" title="Editar Registro">
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" th:href="@{/views/cursos/delete/}+${cl.id}"
+                   th:text="'Eliminar'" title="Eliminar Registro"
+                   onclick="return confirm('Está Seguro de eliminar el registro?')">
+                </a>
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<!-- Pie de página -->
+<footer th:replace="plantilla/template.html::footer">
+
+</footer>
+
+</body>
+</html>
