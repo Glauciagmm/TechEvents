@@ -4,10 +4,10 @@ package com.techevents.techevents.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,11 +26,12 @@ public class Events implements Serializable {
         @NotEmpty
         private String img;
         @NotEmpty
-        private int vacants;
+        @Pattern(regexp = "[0-9]{2}")
+        private String vacants;
         @NotEmpty
         private String description;
-        @NotEmpty
-        private boolean featured;
+
+        private String featured;
         @NotEmpty
         private String type;
 
@@ -75,15 +76,15 @@ public class Events implements Serializable {
                 this.img = img;
         }
 
-        public int getVacants() {
-                return vacants;
+        public String getVacants() {
+            return vacants;
+         }
+
+        public void setVacants(String vacants) {
+            this.vacants = vacants;
         }
 
-        public void setVacants(int vacants) {
-                this.vacants = vacants;
-        }
-
-        public String getDescription() {
+         public String getDescription() {
                 return description;
         }
 
@@ -91,12 +92,12 @@ public class Events implements Serializable {
                 this.description = description;
         }
 
-        public boolean isFeatured() {
-                return featured;
+        public String getFeatured() {
+            return featured;
         }
 
-        public void setFeatured(boolean featured) {
-                this.featured = featured;
+        public void setFeatured(String featured) {
+            this.featured = featured;
         }
 
         public String getType() {
