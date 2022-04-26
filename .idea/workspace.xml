@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98dde3cb-a7f2-4289-9d2b-ea1ef97b6dda" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/techevents/techevents/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/views/admin/listacursos.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/techevents/techevents/controller/EventsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/techevents/techevents/controller/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/techevents/techevents/entity/Eventos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plantilla/templateAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plantilla/templateAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/views/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/views/admin/frmCrear.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/views/admin/listacursos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/views/admin/listar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/techevents.iml" beforeDir="false" afterPath="$PROJECT_DIR$/techevents.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +26,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -43,7 +50,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ClientesAPP" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RunManager">
     <configuration name="TecheventsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -66,6 +81,7 @@
       <workItem from="1650376409657" duration="63000" />
       <workItem from="1650439507179" duration="630000" />
       <workItem from="1650870399390" duration="1288000" />
+      <workItem from="1650955987126" duration="12969000" />
     </task>
     <servers />
   </component>
