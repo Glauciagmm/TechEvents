@@ -23,6 +23,11 @@
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
                 </div>
                 <div class="mb-3 row">
+                    <label class=col-md-2 for="description">Description:</label>
+                    <input type="text" th:field="*{description}" class="mb-3 mb-3-sm col-md-6" id="description" placeholder="Description">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{date}"></small>
+                </div>
+                <div class="mb-3 row">
                     <label class=col-md-2 for="date">Date:</label>
                     <input type="text" th:field="*{date}" class="mb-3 mb-3-sm col-md-6" id="date" placeholder="Date">
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></small>
@@ -60,7 +65,7 @@
                     </select>
                 </div>-->
                 <div class="card-footer bg-dark">
-                    <input type="submit" class="btn btn-primary btn-sm" value="Guardar"/>
+                    <input type="submit" class="btn btn-primary btn-sm" value="Save"/>
                 </div>
 
             </form>

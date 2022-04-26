@@ -30,7 +30,8 @@ public class Events implements Serializable {
         private String vacants;
         @NotEmpty
         private String description;
-
+        @NotEmpty
+        @Convert
         private String featured;
         @NotEmpty
         private String type;
