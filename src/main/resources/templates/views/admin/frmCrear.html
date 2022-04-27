@@ -49,7 +49,7 @@
                 </div>
                 <div class="mb-3 row">
                     <label class=col-md-2 for="featured">Featured:</label>
-                    <input type="boolean" th:field="*{featured}" class="mb-3 mb-3-sm col-md-6" id="featured" placeholder="Featured">
+                    <input type="checkbox" th:field="*{featured}" class="mb-3 mb-3-sm col-md-6" id="featured" placeholder="Featured">
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('featured')}" th:errors="*{featured}"></small>
                 </div>
 

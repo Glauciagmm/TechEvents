@@ -27,6 +27,7 @@
             <th scope="col">Date</th>
             <th scope="col">Img</th>
             <th scope="col">Vacants</th>
+            <th scope="col">Type</th>
             <th scope="col">Featured</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
@@ -43,14 +44,6 @@
             <td th:text="${cl.type}"></td>
             <td th:text="${cl.featured}"></td>
 
-
-
-            <td>
-                <a class="btn btn-danger btn-sm" th:href="@{/views/admin/featured/}+${cl.id}"
-                   th:text="'Destacar'" title="Destacar Registro">
-                </a>
-            </td>
-
             <td>
                 <a class="btn btn-success btn-sm" th:href="@{/views/admin/edit/}+${cl.id}"
                    th:text="'Editar'" title="Editar Registro">
@@ -62,6 +55,11 @@
                    onclick="return confirm('Está Seguro de eliminar el registro?')">
                 </a>
             </td>
+           <!-- <td>
+                <a class="btn btn-danger btn-sm" th:href="@{/views/admin/featured/}+${cl.id}"
+                   th:text="'Destacar'" title="Destacar Registro">
+                </a>
+            </td>-->
 
         </tr>
 
