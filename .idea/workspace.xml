@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98dde3cb-a7f2-4289-9d2b-ea1ef97b6dda" name="Changes" comment="">
+    <list default="true" id="ffc83daf-885f-4bb2-9f50-7ceefde0a973" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/views/admin/frmCrear.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/views/admin/frmCrear.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/views/admin/listar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/views/admin/listar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plantilla/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plantilla/template.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +48,8 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -65,7 +67,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="98dde3cb-a7f2-4289-9d2b-ea1ef97b6dda" name="Changes" comment="" />
+      <changelist id="ffc83daf-885f-4bb2-9f50-7ceefde0a973" name="Changes" comment="" />
       <created>1650373049353</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -76,6 +78,7 @@
       <workItem from="1650870399390" duration="1288000" />
       <workItem from="1650955987126" duration="21059000" />
       <workItem from="1651042988721" duration="4400000" />
+      <workItem from="1651053016869" duration="855000" />
     </task>
     <servers />
   </component>
