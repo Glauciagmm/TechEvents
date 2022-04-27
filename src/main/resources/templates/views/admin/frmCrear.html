@@ -25,11 +25,11 @@
                 <div class="mb-3 row">
                     <label class=col-md-2 for="description">Description:</label>
                     <input type="text" th:field="*{description}" class="mb-3 mb-3-sm col-md-6" id="description" placeholder="Description">
-                    <small class="form-text text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{date}"></small>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></small>
                 </div>
                 <div class="mb-3 row">
                     <label class=col-md-2 for="date">Date:</label>
-                    <input type="text" th:field="*{date}" class="mb-3 mb-3-sm col-md-6" id="date" placeholder="Date">
+                    <input type="datetime-local" th:field="*{date}" class="mb-3 mb-3-sm col-md-6" id="date" placeholder="Date">
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></small>
                 </div>
                 <div class="mb-3 row">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="mb-3 row">
                     <label class=col-md-2 for="vacants">Vacants:</label>
-                    <input type="text" th:field="*{vacants}" class="mb-3 mb-3-sm col-md-6" id="vacants" placeholder="Vacants">
+                    <input type="number" th:field="*{vacants}" class="mb-3 mb-3-sm col-md-6" id="vacants" placeholder="Vacants" min="1" max="99">
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('vacants')}" th:errors="*{vacants}"></small>
                 </div>
                 <div class="mb-3 row">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="mb-3 row">
                     <label class=col-md-2 for="featured">Featured:</label>
-                    <input type="text" th:field="*{featured}" class="mb-3 mb-3-sm col-md-6" id="featured" placeholder="Featured">
+                    <input type="boolean" th:field="*{featured}" class="mb-3 mb-3-sm col-md-6" id="featured" placeholder="Featured">
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('featured')}" th:errors="*{featured}"></small>
                 </div>
 

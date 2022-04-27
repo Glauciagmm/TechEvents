@@ -25,14 +25,12 @@ public class Events implements Serializable {
         private String date;
         @NotEmpty
         private String img;
-        @NotEmpty
-        @Pattern(regexp = "[0-9]{2}")
-        private String vacants;
+
+        private int vacants;
         @NotEmpty
         private String description;
-        @NotEmpty
-        @Convert
-        private String featured;
+
+        private boolean featured;
         @NotEmpty
         private String type;
 
@@ -77,13 +75,7 @@ public class Events implements Serializable {
                 this.img = img;
         }
 
-        public String getVacants() {
-            return vacants;
-         }
 
-        public void setVacants(String vacants) {
-            this.vacants = vacants;
-        }
 
          public String getDescription() {
                 return description;
@@ -93,17 +85,25 @@ public class Events implements Serializable {
                 this.description = description;
         }
 
-        public String getFeatured() {
+        public int getVacants() {
+            return vacants;
+        }
+
+        public void setVacants(int vacants) {
+            this.vacants = vacants;
+        }
+
+        public boolean isFeatured() {
             return featured;
         }
 
-        public void setFeatured(String featured) {
+        public void setFeatured(boolean featured) {
             this.featured = featured;
         }
 
         public String getType() {
-                return type;
-        }
+                    return type;
+            }
 
         public void setType(String type) {
                 this.type = type;

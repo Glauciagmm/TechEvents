@@ -49,7 +49,7 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ClientesAPP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
@@ -74,7 +74,8 @@
       <workItem from="1650376409657" duration="63000" />
       <workItem from="1650439507179" duration="630000" />
       <workItem from="1650870399390" duration="1288000" />
-      <workItem from="1650955987126" duration="19808000" />
+      <workItem from="1650955987126" duration="21059000" />
+      <workItem from="1651042988721" duration="3441000" />
     </task>
     <servers />
   </component>
