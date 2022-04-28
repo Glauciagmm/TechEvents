@@ -20,6 +20,10 @@ public class EventsServicesImpl implements IEventsService {
         return (List<Events>) eventsRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
     }
 
+    public List<Events> listarDestacados(){
+        return (List<Events>) eventsRepository.findByFeaturedIsTrue();
+    }
+
     @Override
     public void guardar (Events events){
         eventsRepository.save(events);

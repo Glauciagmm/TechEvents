@@ -37,6 +37,9 @@ public class HomeController {
         model.addAttribute("titulo", "Listado de Eventos");
         model.addAttribute("events", listadoEvents);
 
+        List<Events> listadoDestacados = eventsService.listarDestacados();
+        model.addAttribute("destacados", listadoDestacados);
+
         return "home";
     }
 }

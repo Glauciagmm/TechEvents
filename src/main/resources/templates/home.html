@@ -14,7 +14,7 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 
         <div class="carousel-inner">
-            <div th:each="cl:${events}" th:classappend="${clStat.first} ? active : ''" class="carousel-item">
+            <div th:each="cl:${destacados}" th:classappend="${clStat.first} ? active : ''" class="carousel-item">
                 <img th:src="${cl.img}" class="d-block w-100">
             </div>
         </div>
