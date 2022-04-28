@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/templateAdmin.html :: head">
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<header th:replace="plantilla/templateAdmin.html :: header">
+
+</header>
+
+<!--Contenido -->
+<div class="container">
+    <h1 th:text="${titulo}"></h1>
+    <p th:text="${users}"> </p>
+</div>
+<div class="container">
+    <a class="btn btn-primary btn-sm" th:href="@{/views/users/create}"
+       th:text="'New User'" title="Crear nuevo Registro">
+    </a>
+    <table class="table caption-top">
+        <caption>Profile</caption>
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Admin</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cl:${users}">
+            <th scope="row" th:text="${cl.id}"></th>
+            <td th:text="${cl.name}"></td>
+            <td th:text="${cl.surname}"></td>
+            <td th:text="${cl.phone}"></td>
+            <td th:text="${cl.email}"></td>
+            <td th:text="${cl.admin}"></td>
+
+
+
+            <td>
+                <a class="btn btn-success btn-sm" th:href="@{/views/users/edit/}+${cl.id}"
+                   th:text="'Editar'" title="Editar Registro">
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" th:href="@{/views/users/delete/}+${cl.id}"
+                   th:text="'Eliminar'" title="Eliminar Registro"
+                   onclick="return confirm('Está Seguro de eliminar el registro?')">
+                </a>
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<!-- Pie de página -->
+<footer th:replace="plantilla/templateUser.html::footer">
+
+</footer>
+
+</body>
+</html>

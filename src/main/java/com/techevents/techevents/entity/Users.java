@@ -1,6 +1,9 @@
 package com.techevents.techevents.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
@@ -13,9 +16,14 @@ public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
     private String name;
+    @NotEmpty
     public String surname;
+    @NotEmpty
     private String phone;
+    @NotEmpty
+    @Email
     private String email;
     private Boolean admin;
 
