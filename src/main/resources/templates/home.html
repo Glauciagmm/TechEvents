@@ -16,6 +16,10 @@
         <div class="carousel-inner">
             <div th:each="cl:${destacados}" th:classappend="${clStat.first} ? active : ''" class="carousel-item">
                 <img th:src="${cl.img}" class="d-block w-100">
+                <div class="carousel-caption bg-dark p-2 text-white bg-opacity-50">
+                    <h2 th:text="${cl.name}"></h2>
+                    <p th:text="${cl.description}"></p>
+                </div>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
