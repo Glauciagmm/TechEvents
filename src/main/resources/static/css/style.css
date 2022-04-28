@@ -98,3 +98,11 @@ h1.heading {
     font-weight:600;
     text-transform: uppercase
 }
+
+
+.carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height: 50vh;
+    overflow: hidden;
+}

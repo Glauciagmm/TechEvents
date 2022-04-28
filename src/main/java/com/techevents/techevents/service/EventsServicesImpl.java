@@ -4,6 +4,7 @@ import com.techevents.techevents.entity.Events;
 import com.techevents.techevents.entity.Users;
 import com.techevents.techevents.repository.EventsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class EventsServicesImpl implements IEventsService {
 
     @Override
     public List<Events> listarTodos(){
-        return (List<Events>) eventsRepository.findAll();
+        return (List<Events>) eventsRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
     }
 
     @Override

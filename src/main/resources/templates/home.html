@@ -5,7 +5,7 @@
 <body>
 <header th:replace="plantilla/template :: header"></header>
 
-<div th:replace="plantilla/template :: carousel"></div>
+<!-- <div th:replace="plantilla/template :: carousel"></div> -->
 
 
 <h2>carousel</h2>
@@ -32,10 +32,55 @@
 
 
 
-
-
 <br>
-<section th:replace="plantilla/template :: events-list"></section>
+<!-- <section th:replace="plantilla/template :: events-list"></section> -->
+
+
+
+
+
+
+<section th:fragment="events-list" class="wrapper">
+    <div class="container-fostrap p-0">
+        <div>
+            <h2 class="heading display-6">
+                All Events
+            </h2>
+        </div>
+        <div class="content">
+            <div class="container mb-4">
+                <div class="row">
+                    <div th:each="eventsList:${events}" class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                                <img th:src="${eventsList.img}" />
+                            </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a th:text="${eventsList.name}" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"></a>
+                                </h4>
+                                <p th:text="${eventsList.description}" class="">
+                                    Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                                </p>
+                            </div>
+                            <div class="card-read-more">
+                                <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
 <footer th:replace="plantilla/template :: footer"></footer>
 </body>
 </html>
