@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/templateUser.html :: head">
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<header th:replace="plantilla/templateUser.html :: header">
+
+</header>
+
+<!--Contenido -->
+<div class="container">
+  <div class="card bg-light">
+    <div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+
+    <div class="card-body">
+      <form th:action="@{/views/users/save}" th:object="${users}" method="post">
+        <div class="mb-3 row">
+          <input type="hidden" th:field="*{id}">
+          <label class=col-md-2 for="name">Name:</label>
+          <input type="text" th:field="*{name}" class="mb-3 mb-3-sm col-md-6" id="name" placeholder="Name">
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+        </div>
+        <div class="mb-3 row">
+          <label class=col-md-2 for="surname">Surname:</label>
+          <input type="text" th:field="*{surname}" class="mb-3 mb-3-sm col-md-6" id="surname" placeholder="Surname">
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></small>
+        </div>
+        <div class="mb-3 row">
+          <label class=col-md-2 for="phone">Phone:</label>
+          <input type="number" th:field="*{phone}" class="mb-3 mb-3-sm col-md-6" id="phone" placeholder="Phone" min="0" max="999999999">
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></small>
+        </div>
+        <div class="mb-3 row">
+          <label class=col-md-2 for="email">Email:</label>
+          <input type="text" th:field="*{email}" class="mb-3 mb-3-sm col-md-6" id="email" placeholder="Email">
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+        </div>
+        <div class="mb-3 row">
+          <label class=col-md-2 for="admin">Admin:</label>
+          <input type="checkbox" th:field="*{admin}" class="mb-3 mb-3-sm col-md-6" id="admin" placeholder="Administrador">
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('admin')}" th:errors="*{admin}"></small>
+        </div>
+
+        <!-- <div class="mb-3 row">
+             <label class=col-md-2 for="users">Users:</label>
+             <select type="text" th:field="*{users}" class="mb-3 mb-3-sm col-md-6" id="users">
+                 <option
+                         th:each="users:${users}"
+                         th:value="${users.id}"
+                         th:text="${users.users}"
+                 />
+             </select>
+         </div>-->
+        <div class="card-footer bg-dark">
+          <input type="submit" class="btn btn-primary btn-sm" value="Save"/>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Pie de página -->
+<footer th:replace="plantilla/templateUser.html::footer">
+
+</footer>
+
+</body>
+</html>

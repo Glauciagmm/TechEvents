@@ -1,7 +1,11 @@
 package com.techevents.techevents.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
+import java.net.PasswordAuthentication;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,10 +17,17 @@ public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
     private String name;
+    @NotEmpty
     public String surname;
+    @NotEmpty
     private String phone;
+    @NotEmpty
+    @Email
     private String email;
+
+    private String passwordAuthentication;
     private Boolean admin;
 
     @ManyToMany (fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
@@ -26,6 +37,9 @@ public class Users implements Serializable {
             inverseJoinColumns = @JoinColumn (name="id_events"))
 
     private Set<Events> events = new HashSet<>() ;
+
+    public Users() {
+    }
 
 
     public Long getId() {
@@ -48,7 +62,7 @@ public class Users implements Serializable {
         return surname;
     }
 
-    public void setSurname(String surmane) {
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
