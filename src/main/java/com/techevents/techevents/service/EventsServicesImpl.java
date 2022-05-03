@@ -15,28 +15,28 @@ public class EventsServicesImpl implements IEventsService {
     private EventsRepository eventsRepository;
 
     @Override
-    public List<Events> listarTodos(){
+    public List<Events> findAll(){
         return (List<Events>) eventsRepository.findAll();
     }
 
     @Override
-    public void guardar (Events events){
+    public void save (Events events){
         eventsRepository.save(events);
     }
 
     @Override
-    public Events buscadorPorId(Long id){
+    public Events findById(Long id){
 
         return eventsRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void eliminar(Long id){
+    public void delete(Long id){
         eventsRepository.deleteById(id);
     }
 
     @Override
-    public List<Users> listaUsers(){
+    public List<Users> listUsers(){
         return null;
     }
 
