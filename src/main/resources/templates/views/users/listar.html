@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="plantilla/templateAdmin.html :: head">
+<head th:replace="plantilla/templateUser.html :: head">
     <meta charset="UTF-8">
 </head>
 <body>
 
-<header th:replace="plantilla/templateAdmin.html :: header">
+<header th:replace="plantilla/templateUser.html :: header">
 
 </header>
 
 <!--Contenido -->
 <div class="container">
     <h1 th:text="${titulo}"></h1>
-    <p th:text="${users}"> </p>
 </div>
 <div class="container">
     <a class="btn btn-primary btn-sm" th:href="@{/views/users/create}"

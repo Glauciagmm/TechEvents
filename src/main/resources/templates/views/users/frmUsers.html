@@ -29,7 +29,7 @@
         </div>
         <div class="mb-3 row">
           <label class=col-md-2 for="phone">Phone:</label>
-          <input type="number" th:field="*{phone}" class="mb-3 mb-3-sm col-md-6" id="phone" placeholder="Phone">
+          <input type="number" th:field="*{phone}" class="mb-3 mb-3-sm col-md-6" id="phone" placeholder="Phone" min="0" max="999999999">
           <small class="form-text text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></small>
         </div>
         <div class="mb-3 row">
