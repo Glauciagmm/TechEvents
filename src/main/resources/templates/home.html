@@ -8,7 +8,7 @@
 <!-- <div th:replace="plantilla/template :: carousel"></div> -->
 
 
-<h2>carousel</h2>
+<br >
 <div class="container">
     <h2 class="text-center display-4 mx-1 my-1 mt-2">Featured Events</h2>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -63,12 +63,21 @@
                                 <h4 class="card-title">
                                     <a th:text="${eventsList.name}" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"></a>
                                 </h4>
+                                <h5 th:text="${eventsList.type}" class="">
+                                    Tipo de evento
+                                </h5>
                                 <p th:text="${eventsList.description}" class="">
-                                    Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                                    Descripcion evento
                                 </p>
                                 <p th:text="${eventsList.date}" class="">
-                                    Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                                    fecha de evento
                                 </p>
+                                <span>
+                                    Apuntados: 0 /
+                                </span>
+                                <span th:text="${eventsList.vacants}" class="">
+                                    plazas
+                                </span>
                             </div>
                             <div class="card-read-more">
                                 <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">

@@ -50,9 +50,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../pruebas/REGISTRATION-LOGIN-ADMIN-ROLE-SPRING-BOOT-JAVA" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
     <configuration name="TecheventsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -80,7 +81,12 @@
       <workItem from="1651053016869" duration="7275000" />
       <workItem from="1651129078454" duration="20721000" />
       <workItem from="1651170661041" duration="2968000" />
-      <workItem from="1651213980251" duration="2418000" />
+      <workItem from="1651213980251" duration="7875000" />
+      <workItem from="1651471762681" duration="1386000" />
+      <workItem from="1651481437471" duration="139000" />
+      <workItem from="1651481597796" duration="130000" />
+      <workItem from="1651481749607" duration="2006000" />
+      <workItem from="1651565332897" duration="1575000" />
     </task>
     <servers />
   </component>
