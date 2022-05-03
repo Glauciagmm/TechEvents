@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98dde3cb-a7f2-4289-9d2b-ea1ef97b6dda" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/techevents.iml" beforeDir="false" afterPath="$PROJECT_DIR$/techevents.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +19,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -44,13 +48,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\prc92\IdeaProjects\TechEvents\src\main\resources\templates" />
+      <recent name="C:\Users\prc92\IdeaProjects\TechEvents\src\main\resources\static\js" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.Login.html">
+    <configuration name="Login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/TechEvents/templates/Login.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="TecheventsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="techevents" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.techevents.techevents.TecheventsApplication" />
@@ -58,6 +73,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.Login.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -71,11 +91,26 @@
       <workItem from="1650376409657" duration="63000" />
       <workItem from="1650439507179" duration="630000" />
       <workItem from="1650870399390" duration="1509000" />
-      <workItem from="1650875150486" duration="1635000" />
+      <workItem from="1650875150486" duration="11257000" />
+      <workItem from="1650967528609" duration="308000" />
+      <workItem from="1651129483606" duration="448000" />
+      <workItem from="1651130415465" duration="4743000" />
+      <workItem from="1651517959637" duration="4392000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
