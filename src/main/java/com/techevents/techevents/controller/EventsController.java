@@ -1,7 +1,6 @@
 package com.techevents.techevents.controller;
 
 import com.techevents.techevents.entity.Events;
-import com.techevents.techevents.entity.Users;
 import com.techevents.techevents.service.IEventsService;
 import com.techevents.techevents.service.IUsersService;
 
@@ -26,101 +25,100 @@ public class EventsController {
         private IUsersService usersService;
 
         @GetMapping("/")
-        public String listarEvents(Model model){
-            List<Events> listadoEvents = eventsService.listarTodos();
+        public String listEvents(Model model){
+            List<Events> listOfEvents = eventsService.findAll();
 
-            model.addAttribute("titulo", "Lista de Events");
-            model.addAttribute("events", listadoEvents);
-            return "/views/admin/listar";
+            model.addAttribute("title", "List of Events");
+            model.addAttribute("events", listOfEvents);
+            return "/views/admin/list";
         }
 
         @GetMapping("/create")
-        public String crear (Model model){
+        public String create (Model model){
 
             Events events = new Events();
-            /*List<Users> listUsers= usersService.listaUsers();*/
+            /*List<Users> listUsers= usersService.listUsers();*/
 
-            model.addAttribute("titulo", "Form: New Event");
+            model.addAttribute("title", "Form: New Event");
             model.addAttribute("events", events);
            /* model.addAttribute("users", listUsers);*/
 
-            return "/views/admin/frmCrear";
+            return "/views/admin/frmCreate";
         }
 
         @PostMapping("/save")
-        public String guardar(@Valid @ModelAttribute Events events, BindingResult result,
+        public String save(@Valid @ModelAttribute Events events, BindingResult result,
                               Model model, RedirectAttributes attribute){
-            /*List<Users> listUsers = usersService.listaUsers();*/
+            /*List<Users> listUsers = usersService.listUsers();*/
 
             if (result.hasErrors()){
-                model.addAttribute("titulo", "Form: New Event");
+                model.addAttribute("title", "Form: New Event");
                 model.addAttribute("events", events);
                 /*model.addAttribute("users", listUsers);*/
-                System.out.println("Hubo errores en el formulario");
+                System.out.println("Error in the form");
 
-                return "/views/admin/frmCrear";
+                return "/views/admin/frmCreate";
             }
 
-           eventsService.guardar(events);
-            System.out.println("Evento guardado con exito!");
-            attribute.addFlashAttribute("sucess","Evento guardado con exito");
+           eventsService.save(events);
+            System.out.println("Successfully Saved!");
+            attribute.addFlashAttribute("success","Successfully Saved");
             return "redirect:/views/admin/";
         }
 
         @GetMapping("/edit/{id}")
-        public String editar (@PathVariable("id") Long idEvents, Model model,
+        public String edit (@PathVariable("id") Long idEvents, Model model,
                               RedirectAttributes attribute){
 
             Events events = null;
 
             if(idEvents > 0) {
-                events = eventsService.buscadorPorId(idEvents);
+                events = eventsService.findById(idEvents);
 
                 if(events == null){
-                    System.out.println("Error: El Id indicado no existe!");
-                    attribute.addFlashAttribute("error","Atención: El Id indicado no existe!");
+                    System.out.println("Error: The Id doesn't exist!");
+                    attribute.addFlashAttribute("error","Attention: The Id doesn't exist!");
                     return "redirect:/views/admin/";
                 }
             }else {
-                System.out.println("Error: Hay un error con el Id!");
-                attribute.addFlashAttribute("error","Atención: error con el Id!");
+                System.out.println("Error: error with the indicated Id!");
+                attribute.addFlashAttribute("error","Attention: error with the indicated Id!");
                 return "redirect:/views/admin/";
             }
 
-            /*List<Users> listUsers = usersService.listaUsers();*/
+            /*List<Users> listUsers = usersService.listUsers();*/
 
-            model.addAttribute("titulo", "Form: Edit Event");
+            model.addAttribute("title", "Form: Edit Event");
             model.addAttribute("events", events);
            /* model.addAttribute("users", listUsers);*/
 
 
-            return "/views/admin/frmCrear";
+            return "/views/admin/frmCreate";
         }
 
         @GetMapping("/delete/{id}")
-        public String eliminar (@PathVariable("id") Long idEvents, RedirectAttributes attribute){
+        public String delete (@PathVariable("id") Long idEvents, RedirectAttributes attribute){
             Events events = null;
 
             if(idEvents > 0) {
-                events = eventsService.buscadorPorId(idEvents);
+                events = eventsService.findById(idEvents);
 
                 if(events == null){
-                    System.out.println("Error: El Id indicado no existe!");
-                    attribute.addFlashAttribute("error","Atención: El Id indicado no existe!");
+                    System.out.println("Error: The Id doesn't exist!");
+                    attribute.addFlashAttribute("error","Attention: The Id doesn't exist!");
                     return "redirect:/views/admin/";
                 }
             }else {
-                System.out.println("Error: Hay un error con el Id!");
-                attribute.addFlashAttribute("error","Atención: error con el Id!");
+                System.out.println("Error: error with the indicated Id!");
+                attribute.addFlashAttribute("error","Attention: error with the indicated Id!");
                 return "redirect:/views/admin/";
             }
 
-            eventsService.eliminar(idEvents);
-            System.out.println("Registro eliminado con éxito!");
-            attribute.addFlashAttribute("warning","Registro eliminado con éxito!");
+            eventsService.delete(idEvents);
+            System.out.println("Successfully Deleted!");
+            attribute.addFlashAttribute("warning","Successfully Deleted!");
 
             return "redirect:/views/admin/";
         }
 
 }
-

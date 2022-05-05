@@ -12,7 +12,7 @@
 <!--Contenido -->
 <div class="container">
     <div class="card bg-light">
-        <div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+        <div class="card-header bg-dark text-white" th:text="${title}"></div>
 
         <div class="card-body">
             <form th:action="@{/views/admin/save}" th:object="${events}" method="post">
