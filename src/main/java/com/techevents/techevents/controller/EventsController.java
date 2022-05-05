@@ -106,12 +106,12 @@ public class EventsController {
 
             if(events == null){
                 System.out.println("Error: The ID doesn't not exist!");
-                attribute.addFlashAttribute("error","Atention: The ID doesn't exist!");
+                attribute.addFlashAttribute("error","Attention: The ID doesn't exist!");
                 return "redirect:/views/admin/";
             }
         }else {
             System.out.println("Error: Error with the indicated ID!");
-            attribute.addFlashAttribute("error","Atention: Error with the indicated ID!");
+            attribute.addFlashAttribute("error","Attention: Error with the indicated ID!");
             return "redirect:/views/admin/";
         }
 
