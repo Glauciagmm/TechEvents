@@ -13,8 +13,12 @@
 
             <div class="col-md-3">
                 <div class="card card-body">
-                    <span th:if="${session.users != null}">Bienvenido <span class="font-italic" th:text="${session.users.name}"></span></span>
-
+                    <span th:if="${session.users != null}">Bienvenido usuario de nombre <span class="font-italic" th:text="${session.users.name}"></span></span>
+                    <span>Array events del usuario: <br><span class="font-italic" th:text="${session.users.events}"></span></span>
+                    <br><br>
+                    <div th:each="eventsList:${session.users.events}">
+                        <span>Tu evento es: <span class="font-italic" th:text="${eventsList.name}"></span></span>
+                    </div>
                     <form th:action="@{/views/users/logout}" method="POST">
                         <button type="submit" class="btn btn-primary mt-3">Salir</button>
                     </form>

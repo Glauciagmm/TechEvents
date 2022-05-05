@@ -20,6 +20,7 @@ public class Events implements Serializable {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         @NotEmpty
+        @Column(name = "name")
         private String name;
         @NotEmpty
         private String date;
@@ -34,11 +35,7 @@ public class Events implements Serializable {
         @NotEmpty
         private String type;
 
-       @ManyToMany (fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-        @JoinTable(
-                name = "class",
-                joinColumns = @JoinColumn(name= "id_users"),
-        inverseJoinColumns = @JoinColumn (name="id_events"))
+       @ManyToMany (mappedBy = "events")
 
         private Set<Users> users = new HashSet<>() ;
 

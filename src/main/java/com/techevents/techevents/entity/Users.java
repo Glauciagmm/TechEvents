@@ -36,7 +36,7 @@ public class Users implements Serializable {
             joinColumns = @JoinColumn(name= "id_users"),
             inverseJoinColumns = @JoinColumn (name="id_events"))
 
-    private Set<Events> events = new HashSet<>() ;
+    private Set<Events> events;
 
     public Users() {
     }
