@@ -30,6 +30,11 @@ public class UsersController {
 
     }
 
+    @GetMapping("/logout")
+    public String logout(){
+        return "/views/users/logout";
+    }
+
     @GetMapping("/index")
     public String index(Authentication auth, HttpSession session){
         String username = auth.getName();
