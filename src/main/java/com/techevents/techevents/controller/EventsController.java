@@ -31,7 +31,7 @@ public class EventsController {
 
         model.addAttribute("title", "List of Events");
         model.addAttribute("events", listOfEvents);
-        return "redirect:/views/admin/list";
+        return "/views/admin/list";
     }
 
     @GetMapping("/create")
@@ -44,7 +44,7 @@ public class EventsController {
         model.addAttribute("events", events);
         /* model.addAttribute("users", listUsers);*/
 
-        return "redirect:/views/admin/frmCreate";
+        return "/views/admin/frmCreate";
     }
 
     @PostMapping("/save")
@@ -56,14 +56,14 @@ public class EventsController {
             model.addAttribute("title", "Form: New Event");
             model.addAttribute("events", events);
             /*model.addAttribute("users", listUsers);*/
-            System.out.println("Hubo errores en el formulario");
+            System.out.println("Errors with the form");
 
-            return "redirect:/views/admin/frmCreate";
+            return "/views/admin/frmCreate";
         }
 
         eventsService.save(events);
-        System.out.println("Succefully saved!");
-        attribute.addFlashAttribute("sucess","Sucefully saved");
+        System.out.println("Successfully saved!");
+        attribute.addFlashAttribute("success","Successfully saved");
         return "redirect:/views/admin/";
     }
 
@@ -78,12 +78,12 @@ public class EventsController {
 
             if(events == null){
                 System.out.println("Error: The ID doesn't exist!");
-                attribute.addFlashAttribute("error","Atention: The ID doesn't exist!");
+                attribute.addFlashAttribute("error","Attention: The ID doesn't exist!");
                 return "redirect:/views/admin/";
             }
         }else {
             System.out.println("Error: Problem whit ID!");
-            attribute.addFlashAttribute("error","Atention: Error with the indicate ID!");
+            attribute.addFlashAttribute("error","Attention: Error with the indicate ID!");
             return "redirect:/views/admin/";
         }
 
@@ -94,7 +94,7 @@ public class EventsController {
         /* model.addAttribute("users", listUsers);*/
 
 
-        return "redirect:/views/admin/frmCreate";
+        return "/views/admin/frmCreate";
     }
 
     @GetMapping("/delete/{id}")
