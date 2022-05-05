@@ -15,4 +15,5 @@ public interface IUsersService {
     public Users buscadorPorId(Long id);
     public void eliminar(Long id);
     List<Events> listaEvents();
+    public Users findByUsername(String username);
 }

@@ -38,6 +38,16 @@
           <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
         </div>
         <div class="mb-3 row">
+          <label class=col-md-2 for="email">User Name:</label>
+          <input type="text" th:field="*{username}" class="mb-3 mb-3-sm col-md-6" id="email" placeholder="Email">
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+        </div>
+        <div class="mb-3 row">
+          <label class=col-md-2 for="email">Password:</label>
+          <input type="password" th:field="*{password}" class="mb-3 mb-3-sm col-md-6" id="password" placeholder="Email">
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+        </div>
+        <div class="mb-3 row">
           <label class=col-md-2 for="admin">Admin:</label>
           <input type="checkbox" th:field="*{admin}" class="mb-3 mb-3-sm col-md-6" id="admin" placeholder="Administrador">
           <small class="form-text text-danger" th:if="${#fields.hasErrors('admin')}" th:errors="*{admin}"></small>

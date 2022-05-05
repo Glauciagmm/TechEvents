@@ -26,8 +26,8 @@ public class Users implements Serializable {
     @NotEmpty
     @Email
     private String email;
-
-    private String passwordAuthentication;
+    private String username;
+    private String password;
     private Boolean admin;
 
     @ManyToMany (fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
@@ -90,6 +90,30 @@ public class Users implements Serializable {
         this.admin = admin;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<Events> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Set<Events> events) {
+        this.events = events;
+    }
+
     @Override
     public String toString() {
         return "Users{" +
@@ -98,8 +122,26 @@ public class Users implements Serializable {
                 ", surname='" + surname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", admin=" + admin +
                 ", events=" + events +
                 '}';
+    }
+
+    public Users(Long id, String name, String surname, String phone, String email, String username, String password, Boolean admin, Set<Events> events) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.admin = admin;
+        this.events = events;
+    }
+
+    public Users(Long id) {
+        super();
     }
 }
