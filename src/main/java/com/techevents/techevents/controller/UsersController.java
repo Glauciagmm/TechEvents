@@ -4,14 +4,13 @@ import com.techevents.techevents.entity.Events;
 import com.techevents.techevents.entity.Users;
 import com.techevents.techevents.service.IEventsService;
 import com.techevents.techevents.service.IUsersService;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
@@ -49,12 +48,13 @@ public class UsersController {
 
     @GetMapping("/")
     public String listUsers(Model model){
-        List<Users> listadoUsers = usersService.findAll();
+        List<Users> listofUsers = usersService.findAll();
 
         model.addAttribute("title", "List of users");
-        model.addAttribute("users", listadoUsers);
+        model.addAttribute("users", listofUsers);
         return"/views/users/list";
     }
+
     @GetMapping("/create")
     public String create (Model model) {
 
@@ -67,6 +67,7 @@ public class UsersController {
 
         return "/views/users/frmUsers";
     }
+
     @PostMapping("/save")
     public String saveUser(@Valid @ModelAttribute Users users, BindingResult result,
                           Model model, RedirectAttributes attribute){
@@ -107,7 +108,7 @@ public class UsersController {
             return "redirect:/views/users/";
         }
 
-        /*List<Users> listUsers = usersService.listaUsers();*/
+        /*List<Users> listUsers = usersService.listUsers();*/
 
         model.addAttribute("title", "Form: Edit User");
         model.addAttribute("users", users);
@@ -141,8 +142,9 @@ public class UsersController {
 
         return "redirect:/views/users/";
     }
+
     @GetMapping("/save/{id}")
-    public String saveEvent (@PathVariable("id") Long idEvents, RedirectAttributes attribute){
+    public String saveEvent (@Valid @PathVariable("id") Long idEvents, RedirectAttributes attribute){
         Events events = null;
 
         if(idEvents > 0) {
@@ -165,8 +167,9 @@ public class UsersController {
         return "/views/users/index";
 
     }
-    @GetMapping("/delete/{id}")
-    public String deleteEvent (@PathVariable("id") Long idEvents, RedirectAttributes attribute){
+
+    /*@GetMapping("/delete/{id}")
+    public String deleteUserEvent (@PathVariable("id") Long idEvents, RedirectAttributes attribute){
         Events events = null;
 
         if(idEvents > 0) {
@@ -175,19 +178,19 @@ public class UsersController {
             if(events == null){
                 System.out.println("Error:This Event has already been eliminated!");
                 attribute.addFlashAttribute("error","Attention: This Event has already been eliminated!");
-                return "redirect:/views/users/index\"";
+                return "redirect:/views/users/index";
             }
         }else {
             System.out.println("Error: Try it again!");
             attribute.addFlashAttribute("error","Attention: Something gone wrong!");
-            return "redirect:/views/users/index\"";
+            return "redirect:/views/users/index";
         }
 
         eventsService.delete(idEvents);
         System.out.println("Successfully deleted!");
         attribute.addFlashAttribute("warning","Successfully deleted!");
 
-        return "redirect:/views/users/index";
-    }
+        return "/views/users/myEvents";
+    }*/
 
 }
