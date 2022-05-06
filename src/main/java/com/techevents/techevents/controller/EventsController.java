@@ -122,5 +122,30 @@ public class EventsController {
         return "redirect:/views/admin/";
     }
 
+        @GetMapping("/save/{id}")
+        public String saveEvent (@PathVariable("id") Long idEvents, RedirectAttributes attribute){
+            Events events = null;
+
+            if(idEvents > 0) {
+                events = eventsService.buscadorPorId(idEvents);
+
+                if(events == null){
+                    System.out.println("Error: You are already signed up!");
+                    attribute.addFlashAttribute("error","Attention: You are already signed up, choose another event!");
+                    return "redirect:/index/";
+                }
+            }else {
+                System.out.println("Error: You are already signed up!");
+                attribute.addFlashAttribute("error","Attention: You are already signed up, choose another event!");
+                return "redirect:/index/";
+            }
+
+            eventsService.guardar(events);
+            System.out.println("Added to your events!");
+            attribute.addFlashAttribute("success","Successfully added to your events!");
+            return "/views/users/myEvents";
+
+        }
+
 }
 

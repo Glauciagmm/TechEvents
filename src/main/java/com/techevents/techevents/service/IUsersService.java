@@ -9,10 +9,10 @@ import java.util.List;
 
 
 public interface IUsersService {
-    public List<Users> listarTodos();
-    public void guardar(Users users);
+    public List<Users> findAll();
+    public void save(Users users);
 
-    public Users buscadorPorId(Long id);
-    public void eliminar(Long id);
-    List<Events> listaEvents();
+    public Users findById(Long id);
+    public void delete(Long id);
+    List<Events> listEvents();
 }
