@@ -11,7 +11,7 @@
 
 <!--Contenido -->
 <div class="container">
-    <h1 th:text="${titulo}"></h1>
+    <h1 th:text="${title}"></h1>
 </div>
 <div class="container">
     <a class="btn btn-primary btn-sm" th:href="@{/views/users/create}"
@@ -44,13 +44,13 @@
 
             <td>
                 <a class="btn btn-success btn-sm" th:href="@{/views/users/edit/}+${cl.id}"
-                   th:text="'Editar'" title="Editar Registro">
+                   th:text="'Edit'" title="Edit Register">
                 </a>
             </td>
             <td>
                 <a class="btn btn-danger btn-sm" th:href="@{/views/users/delete/}+${cl.id}"
-                   th:text="'Eliminar'" title="Eliminar Registro"
-                   onclick="return confirm('Está Seguro de eliminar el registro?')">
+                   th:text="'Delete'" title="Delete Register"
+                   onclick="return confirm('Are you sure to eliminate it?')">
                 </a>
             </td>
 

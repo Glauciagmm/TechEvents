@@ -28,7 +28,7 @@ public class UsersController {
     public String listUsers(Model model){
         List<Users> listadoUsers = usersService.findAll();
 
-        model.addAttribute("titulo", "List of users");
+        model.addAttribute("title", "List of users");
         model.addAttribute("users", listadoUsers);
         return"/views/users/list";
     }
@@ -36,7 +36,7 @@ public class UsersController {
     public String create (Model model) {
 
         Users users = new Users();
-        /*List<Users> listUsers= usersService.listaUsers();*/
+        /*List<Users> listUsers= usersService.listUsers();*/
 
         model.addAttribute("title", "Form: New User");
         model.addAttribute("users", users);
@@ -47,7 +47,7 @@ public class UsersController {
     @PostMapping("/save")
     public String saveUser(@Valid @ModelAttribute Users users, BindingResult result,
                           Model model, RedirectAttributes attribute){
-        /*List<Users> listUsers = usersService.listaUsers();*/
+        /*List<Users> listUsers = usersService.listUsers();*/
 
         if (result.hasErrors()){
             model.addAttribute("title", "Form: New User");
