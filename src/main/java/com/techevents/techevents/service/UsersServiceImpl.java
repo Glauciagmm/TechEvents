@@ -39,4 +39,9 @@ public class UsersServiceImpl implements IUsersService{
         return null;
     }
 
+    @Override
+    public Users findByUsername(String username) {
+        return null;
+    }
+
 }
