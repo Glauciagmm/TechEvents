@@ -31,6 +31,6 @@ public class HomeController {
         List<Events> listOfFeatured = eventsService.listFeatured();
         model.addAttribute("features", listOfFeatured);
 
-        return "/home";
+        return "home";
     }
 }
