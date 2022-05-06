@@ -15,4 +15,6 @@ public interface IUsersService {
     public Users findById(Long id);
     public void delete(Long id);
     List<Events> listEvents();
+
+    Users findByUsername(String username);
 }

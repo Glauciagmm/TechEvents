@@ -102,4 +102,10 @@ public class Users implements Serializable {
                 ", events=" + events +
                 '}';
     }
+
+    public void setPassword(Object o) {
+    }
+
+    public String getPassword() {
+    }
 }
