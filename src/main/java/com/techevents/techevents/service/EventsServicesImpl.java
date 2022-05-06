@@ -39,6 +39,9 @@ public class EventsServicesImpl implements IEventsService {
     public List<Users> listUsers(){
         return null;
     }
+    public List<Events> listFeatured(){
+        return (List<Events>) eventsRepository.findByFeaturedIsTrue();
+    }
 
 
 }

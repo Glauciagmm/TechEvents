@@ -28,7 +28,7 @@ public class HomeController {
         model.addAttribute("title", "List of Events");
         model.addAttribute("events", listofEvents);
 
-        List<Events> listadoDestacados = eventsService.listFeatured();
+        List<Events> listOfFeatured = eventsService.listFeatured();
         model.addAttribute("features", listOfFeatured);
 
         return "home";
