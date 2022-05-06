@@ -53,10 +53,10 @@ public class UsersController {
 
     @GetMapping("/")
     public String listUsers(Model model){
-        List<Users> listofUsers = usersService.findAll();
+        List<Users> listOfUsers = usersService.findAll();
 
         model.addAttribute("title", "List of users");
-        model.addAttribute("users", listofUsers);
+        model.addAttribute("users", listOfUsers);
         return"/views/users/list";
     }
 
