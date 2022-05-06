@@ -15,27 +15,27 @@ public class UsersServiceImpl implements IUsersService{
     private UsersRepository usersRepository;
 
     @Override
-    public List<Users> listarTodos() {
+    public List<Users> findAll() {
         return (List<Users>)usersRepository.findAll();}
 
     @Override
-    public void guardar (Users users){
+    public void save(Users users){
         usersRepository.save(users);
     }
 
     @Override
-    public Users buscadorPorId(Long id){
+    public Users findById(Long id){
 
         return usersRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void eliminar(Long id){
+    public void delete(Long id){
         usersRepository.deleteById(id);
     }
 
     @Override
-    public List<Events> listaEvents(){
+    public List<Events> listEvents(){
         return null;
     }
 

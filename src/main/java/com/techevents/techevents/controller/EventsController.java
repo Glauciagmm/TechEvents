@@ -127,7 +127,7 @@ public class EventsController {
             Events events = null;
 
             if(idEvents > 0) {
-                events = eventsService.buscadorPorId(idEvents);
+                events = eventsService.findById(idEvents);
 
                 if(events == null){
                     System.out.println("Error: You are already signed up!");
@@ -140,7 +140,7 @@ public class EventsController {
                 return "redirect:/index/";
             }
 
-            eventsService.guardar(events);
+            eventsService.save(events);
             System.out.println("Added to your events!");
             attribute.addFlashAttribute("success","Successfully added to your events!");
             return "/views/users/myEvents";

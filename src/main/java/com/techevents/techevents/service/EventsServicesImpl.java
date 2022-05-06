@@ -3,6 +3,7 @@ package com.techevents.techevents.service;
 import com.techevents.techevents.entity.Events;
 import com.techevents.techevents.entity.Users;
 import com.techevents.techevents.repository.EventsRepository;
+import com.techevents.techevents.repository.HomeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ public class EventsServicesImpl implements IEventsService {
 
     @Autowired
     private EventsRepository eventsRepository;
+
+    @Autowired
+    HomeRepository homeRepository;
 
     @Override
     public List<Events> findAll(){
@@ -40,7 +44,7 @@ public class EventsServicesImpl implements IEventsService {
         return null;
     }
     public List<Events> listFeatured(){
-        return (List<Events>) eventsRepository.findByFeaturedIsTrue();
+        return (List<Events>) homeRepository.findByFeaturedIsTrue();
     }
 
 
