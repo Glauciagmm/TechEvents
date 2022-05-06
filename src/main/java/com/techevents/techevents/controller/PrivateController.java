@@ -26,7 +26,7 @@ public class PrivateController {
             user.setPassword(null);
             session.setAttribute("user", user);
         }
-        return "index";
+        return "/index";
     }
 }
 

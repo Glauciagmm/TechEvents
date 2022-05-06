@@ -23,14 +23,14 @@ public class HomeController {
 
     @GetMapping({"/index", "/home", "/"})
     public String index(Model model){
-        List<Events> listofEvents = eventsService.findAll();
+        List<Events> listOfEvents = eventsService.findAll();
 
         model.addAttribute("title", "List of Events");
-        model.addAttribute("events", listofEvents);
+        model.addAttribute("events", listOfEvents);
 
         List<Events> listOfFeatured = eventsService.listFeatured();
         model.addAttribute("features", listOfFeatured);
 
-        return "home";
+        return "/home";
     }
 }
