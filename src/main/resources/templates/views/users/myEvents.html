@@ -29,19 +29,19 @@
                                     <a th:text="${eventsList.name}" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"></a>
                                 </h4>
                                 <h5 th:text="${eventsList.type}" class="">
-                                    Tipo de evento
+                                    Tipy of event
                                 </h5>
                                 <p th:text="${eventsList.description}" class="">
-                                    Descripcion evento
+                                    Event's Description
                                 </p>
                                 <p th:text="${eventsList.date}" class="">
-                                    fecha de evento
+                                    Event's date
                                 </p>
                                 <span>
-                                    Apuntados: 0 /
+                                    Signed Up: 0 /
                                 </span>
                                 <span th:text="${eventsList.vacants}" class="">
-                                    plazas
+                                    Vacant
                                 </span>
                             </div>
 
@@ -50,7 +50,7 @@
                                 <!--/*@thymesVar id="CompareDates" type=""*/-->
                                 <td>
                                     <a class="btn btn-success btn-sm" th:href="@{/views/users/index/delete}+${cl.id}"
-                                       th:text="'Desapuntarme'" title="Desapuntarme">
+                                       th:text="'Unsubscribe'" title="Unsubscribe">
                                     </a>
                                 </td>
                                 <td>
