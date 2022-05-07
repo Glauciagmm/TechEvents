@@ -52,6 +52,10 @@ public class UsersController {
             Users users = usersService.findByUsername(username);
             users.setPassword(null);
             session.setAttribute("users", users);
+        }else{
+            Users users = usersService.findByUsername(username);
+            users.setPassword(null);
+            session.setAttribute("users", users);
         }
         return "/views/users/index";
     }
@@ -66,7 +70,7 @@ public class UsersController {
         user.getEvents().add(event);
         usersRepository.save(user);
 
-        return "/views/users/index";
+        return "redirect:/views/users/index";
     }
 
     @GetMapping("/userEventRemove/{id}")
@@ -79,7 +83,7 @@ public class UsersController {
         user.getEvents().remove(event);
         usersRepository.save(user);
 
-        return "/views/users/index";
+        return "redirect:/views/users/index";
     }
 
     @GetMapping("/")

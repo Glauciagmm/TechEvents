@@ -78,12 +78,9 @@
                                 <span th:text="${eventsList.vacants}" class="">
                                     plazas
                                 </span>
-                                <a class="btn btn-success btn-sm" th:href="@{/views/users/userEventAdd/}+${eventsList.id}"
-                                   th:text="'Editar'" title="Editar Registro">
-                                </a>
                             </div>
                             <div class="card-read-more">
-                                <a th:href="@{/views/users/userEventRemove/}+${eventsList.id}" class="btn btn-link btn-block">
+                                <a th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">
                                     Apuntate!
                                 </a>
                             </div>
