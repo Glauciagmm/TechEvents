@@ -2,6 +2,7 @@ package com.techevents.techevents.controller;
 
 import com.techevents.techevents.entity.Events;
 import com.techevents.techevents.entity.Users;
+import com.techevents.techevents.repository.EventsRepository;
 import com.techevents.techevents.repository.UsersRepository;
 import com.techevents.techevents.service.IEventsService;
 import com.techevents.techevents.service.IUsersService;
@@ -30,6 +31,9 @@ public class UsersController {
 
     @Autowired
     private UsersRepository usersRepository;
+
+    @Autowired
+    private EventsRepository eventsRepository;
 
     @GetMapping("/login")
     public String login(Model model){
@@ -67,6 +71,9 @@ public class UsersController {
         String username = auth.getName();
         Users user = usersService.findByUsername(username);
 
+        event.setSigned(event.getSigned()+1);
+        eventsRepository.save(event);
+        System.out.println(event.getSigned());
         user.getEvents().add(event);
         usersRepository.save(user);
 
@@ -79,6 +86,9 @@ public class UsersController {
 
         String username = auth.getName();
         Users user = usersService.findByUsername(username);
+
+        event.setSigned(event.getSigned()-1);
+        eventsRepository.save(event);
 
         user.getEvents().remove(event);
         usersRepository.save(user);

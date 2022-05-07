@@ -56,12 +56,12 @@
                 <div class="row">
                     <div th:each="eventsList:${events}" class="col-xs-12 col-sm-4">
                         <div class="card">
-                            <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                            <span class="img-card">
                                 <img th:src="${eventsList.img}" />
-                            </a>
+                            </span>
                             <div class="card-content">
                                 <h4 class="card-title">
-                                    <a th:text="${eventsList.name}" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"></a>
+                                    <span th:text="${eventsList.name}"></span>
                                 </h4>
                                 <h5 th:text="${eventsList.type}" class="">
                                     Tipo de evento
@@ -73,15 +73,29 @@
                                     fecha de evento
                                 </p>
                                 <span>
-                                    Apuntados: 0 /
+                                    Apuntados:
+                                </span>
+                                <span th:text="${eventsList.signed}" class="">
+                                    plazas
+                                </span>
+                                <span>
+                                     /
                                 </span>
                                 <span th:text="${eventsList.vacants}" class="">
                                     plazas
                                 </span>
                             </div>
                             <div class="card-read-more">
+                                <!--
                                 <a th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">
                                     Apuntate!
+                                </a>
+                                -->
+                                <a th:if="${eventsList.vacants}<${eventsList.signed}" th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">
+                                    Apuntate! Ya
+                                </a>
+                                <a th:unless="${eventsList.vacants}<${eventsList.signed}" class="btn btn-link btn-block text-danger">
+                                    Lleno!
                                 </a>
                             </div>
                         </div>

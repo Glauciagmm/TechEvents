@@ -28,6 +28,9 @@ public class Events implements Serializable {
         private String img;
 
         private int vacants;
+
+        private int signed;
+
         @NotEmpty
         private String description;
 
@@ -72,9 +75,15 @@ public class Events implements Serializable {
                 this.img = img;
         }
 
+    public int getSigned() {
+        return signed;
+    }
 
+    public void setSigned(int signed) {
+        this.signed = signed;
+    }
 
-         public String getDescription() {
+    public String getDescription() {
                 return description;
         }
 

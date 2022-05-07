@@ -48,7 +48,13 @@
                                     fecha de evento
                                 </p>
                                 <span>
-                                    Apuntados: 0 /
+                                    Apuntados:
+                                </span>
+                                <span th:text="${eventsList.signed}" class="">
+                                    plazas
+                                </span>
+                                <span>
+                                     /
                                 </span>
                                 <span th:text="${eventsList.vacants}" class="">
                                     plazas
