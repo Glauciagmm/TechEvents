@@ -91,10 +91,10 @@
                                     Apuntate!
                                 </a>
                                 -->
-                                <a th:if="${eventsList.vacants}<${eventsList.signed}" th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">
-                                    Apuntate! Ya
+                                <a th:if="${eventsList.vacants}>${eventsList.signed}" th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">
+                                    Apuntate!
                                 </a>
-                                <a th:unless="${eventsList.vacants}<${eventsList.signed}" class="btn btn-link btn-block text-danger">
+                                <a th:unless="${eventsList.vacants}>${eventsList.signed}" class="btn btn-link btn-block text-danger">
                                     Lleno!
                                 </a>
                             </div>
