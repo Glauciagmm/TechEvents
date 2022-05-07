@@ -1,6 +1,9 @@
 package com.techevents.techevents.controller;
 
+import com.techevents.techevents.entity.Events;
 import com.techevents.techevents.entity.Users;
+import com.techevents.techevents.repository.UsersRepository;
+import com.techevents.techevents.service.IEventsService;
 import com.techevents.techevents.service.IUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/views/users")
@@ -20,6 +24,12 @@ public class UsersController {
 
     @Autowired
     private IUsersService usersService;
+
+    @Autowired
+    private IEventsService eventsService;
+
+    @Autowired
+    private UsersRepository usersRepository;
 
     @GetMapping("/login")
     public String login(Model model){
@@ -46,7 +56,31 @@ public class UsersController {
         return "/views/users/index";
     }
 
+    @GetMapping("/userEventAdd/{id}")
+    public String userEventAdd(Authentication auth, @PathVariable("id") Long idEvent){
+        Events event = eventsService.buscadorPorId(idEvent);
 
+        String username = auth.getName();
+        Users user = usersService.findByUsername(username);
+
+        user.getEvents().add(event);
+        usersRepository.save(user);
+
+        return "/views/users/index";
+    }
+
+    @GetMapping("/userEventRemove/{id}")
+    public String userEventRemove(Authentication auth, @PathVariable ("id") Long idEvent){
+        Events event = eventsService.buscadorPorId(idEvent);
+
+        String username = auth.getName();
+        Users user = usersService.findByUsername(username);
+
+        user.getEvents().remove(event);
+        usersRepository.save(user);
+
+        return "/views/users/index";
+    }
 
     @GetMapping("/")
     public String listarUsers(Model model){
