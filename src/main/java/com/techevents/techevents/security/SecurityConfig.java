@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutUrl("/views/users/logout").logoutSuccessUrl("/views/users/logout");
     }*/
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/", "/views/users/create**", "/public/**", "/css/**", "/js/**").permitAll().antMatchers("/views/admin/**").access("hasRole('ROLE_ADMIN')").antMatchers("/views/users/**").authenticated().anyRequest().authenticated()
+        http.authorizeRequests().antMatchers("/", "/views/users/create**", "/views/users/save", "/public/**", "/css/**", "/js/**").permitAll().antMatchers("/views/admin/**").access("hasRole('ROLE_ADMIN')").antMatchers("/views/users/**").authenticated().anyRequest().authenticated()
                 .and()
                 .formLogin()    .loginPage("/views/users/login").defaultSuccessUrl("/views/users/index", true).failureUrl("/views/users/login?error=true")
                 .loginProcessingUrl("/views/users/login-post").permitAll()
