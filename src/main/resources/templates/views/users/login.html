@@ -33,7 +33,7 @@
 </div>
 -->
 
-
+<!--
 <form th:object="${users}"  th:action="@{/views/users/login-post}" method="POST" class="form-signin">
     <h3 class="form-signin-heading" th:text="Welcome"></h3>
     <br/>
@@ -46,7 +46,30 @@
     </div>
     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
 </form>
+-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="login-form bg-light mt-4 p-4">
+                <form th:object="${users}"  th:action="@{/views/users/login-post}" method="POST" class="form-signin row g-3">
+                    <h3 class="form-signin-heading" th:text="Welcome"></h3>
+                    <br/>
 
+                    <input name="username" type="text" id="username" th:placeholder="Username" class="form-control" /> <br/>
+                    <input name="password" type="password"  th:placeholder="Password" id="password" class="form-control" /> <br />
+
+                    <div align="center" th:if="${param.error}">
+                        <p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block float-end" name="Submit" value="Login" type="Submit" th:text="Login"></button>
+                    <div class="text-center">
+                        <p>Not a member? <a href="/views/users/create">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

@@ -19,6 +19,14 @@
                 <div class="carousel-caption bg-dark p-2 text-white bg-opacity-50">
                     <h2 th:text="${cl.name}"></h2>
                     <p th:text="${cl.description}"></p>
+                    <p th:text="${cl.date}" class="time">
+                        fecha de evento
+                    </p>
+                    <div class="card-read-more signup">
+                    <a th:if="${cl.vacants}>${cl.signed}" th:href="@{/views/users/userEventAdd/}+${cl.id}" class="text-white btn btn-link btn-block">
+                        Apuntate!
+                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,7 +77,7 @@
                                 <p th:text="${eventsList.description}" class="">
                                     Descripcion evento
                                 </p>
-                                <p th:text="${eventsList.date}" class="">
+                                <p th:text="${eventsList.date}" class="time">
                                     fecha de evento
                                 </p>
                                 <span>
@@ -85,7 +93,7 @@
                                     plazas
                                 </span>
                             </div>
-                            <div class="card-read-more">
+                            <div class="card-read-more signup">
                                 <!--
                                 <a th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">
                                     Apuntate!

@@ -29,7 +29,7 @@ public class Users implements Serializable {
     private String username;
     private String password;
     private Boolean admin;
-
+    private String role;
     @ManyToMany (fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "class",
@@ -41,6 +41,13 @@ public class Users implements Serializable {
     public Users() {
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public Long getId() {
         return id;

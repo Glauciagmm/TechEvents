@@ -46,8 +46,15 @@
                         <a class="nav-link disabled">Disabled</a>
                     </li>
                 </ul>
-                <a class="btn btn-success mx-1" href="/views/users/login">Login</a>
-                <a class="btn btn-info mx-1" href="/views/users/create">Register</a>
+                <div th:if="${!isLoggedIn}">
+                    <a class="btn btn-success mx-1" href="/views/users/login">Login</a>
+                    <a class="btn btn-info mx-1" href="/views/users/create">Register</a>
+                </div>
+                <div th:if="${isLoggedIn}">
+                    <form th:action="@{/views/users/logout}" method="POST">
+                        <button type="submit" class="btn btn-primary mx-1">Logout</button>
+                    </form>
+                </div>
             </div>
         </div>
     </nav>

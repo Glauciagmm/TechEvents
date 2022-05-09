@@ -71,11 +71,16 @@ public class UsersController {
         String username = auth.getName();
         Users user = usersService.findByUsername(username);
 
-        event.setSigned(event.getSigned()+1);
-        eventsRepository.save(event);
-        System.out.println(event.getSigned());
-        user.getEvents().add(event);
-        usersRepository.save(user);
+        if (user.getEvents().contains(event)){
+            System.out.println("Evento duplicado!");
+        }
+        else{
+            event.setSigned(event.getSigned()+1);
+            eventsRepository.save(event);
+            System.out.println("apuntado al evento " + event.getSigned());
+            user.getEvents().add(event);
+            usersRepository.save(user);
+        }
 
         return "redirect:/views/users/index";
     }
@@ -87,11 +92,16 @@ public class UsersController {
         String username = auth.getName();
         Users user = usersService.findByUsername(username);
 
-        event.setSigned(event.getSigned()-1);
-        eventsRepository.save(event);
-
-        user.getEvents().remove(event);
-        usersRepository.save(user);
+        if (user.getEvents().contains(event)){
+            event.setSigned(event.getSigned()-1);
+            eventsRepository.save(event);
+            System.out.println("Eliminado del evento");
+            user.getEvents().remove(event);
+            usersRepository.save(user);
+        }
+        else{
+            System.out.println("Evento no encontrado");
+        }
 
         return "redirect:/views/users/index";
     }

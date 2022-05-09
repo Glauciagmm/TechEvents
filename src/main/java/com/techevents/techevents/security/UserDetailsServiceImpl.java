@@ -26,7 +26,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             builder = User.withUsername(username);
             builder.disabled(false);
             builder.password(user.getPassword());
-            builder.authorities(new SimpleGrantedAuthority("ROLE_USER"));
+            builder.authorities(new SimpleGrantedAuthority(user.getRole()));
+            //builder.authorities(new SimpleGrantedAuthority("ROLE_USER"));
         }
         else{
             throw new UsernameNotFoundException("User not found");
