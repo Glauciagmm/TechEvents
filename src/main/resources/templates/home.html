@@ -26,6 +26,9 @@
                     <a th:if="${cl.vacants}>${cl.signed}" th:href="@{/views/users/userEventAdd/}+${cl.id}" class="text-white btn btn-link btn-block">
                         Apuntate!
                     </a>
+                    <a th:unless="${cl.vacants}>${cl.signed}" class="btn btn-link btn-block text-danger">
+                            Lleno!
+                    </a>
                     </div>
                 </div>
             </div>
