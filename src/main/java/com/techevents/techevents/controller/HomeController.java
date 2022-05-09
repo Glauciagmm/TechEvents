@@ -41,7 +41,7 @@ public class HomeController {
 
     @GetMapping({"/index", "/home", "/"})
     public String index(HttpServletRequest request, Model model, Authentication auth){
-        List<Events> listadoEvents = eventsService.listarTodos();
+        //List<Events> listadoEvents = eventsService.listarTodos();
 
         model.addAttribute("titulo", "Listado de Eventos");
         //model.addAttribute("events", listadoEvents);
