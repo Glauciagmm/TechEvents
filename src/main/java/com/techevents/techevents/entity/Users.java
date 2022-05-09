@@ -29,7 +29,7 @@ public class Users implements Serializable {
     private String username;
     private String password;
     private Boolean admin;
-    private String role;
+    private String role = "ROLE_USER";
     @ManyToMany (fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "class",
