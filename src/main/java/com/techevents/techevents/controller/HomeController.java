@@ -6,6 +6,7 @@ import com.techevents.techevents.service.IEventsService;
 import com.techevents.techevents.service.IUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +44,7 @@ public class HomeController {
         List<Events> listadoEvents = eventsService.listarTodos();
 
         model.addAttribute("titulo", "Listado de Eventos");
-        model.addAttribute("", listadoEvents);
+        //model.addAttribute("events", listadoEvents);
 
         int page = 0; //default page number is 0 (yes it is weird)
         int size = 3; //default page size is 10
@@ -56,7 +57,7 @@ public class HomeController {
             size = Integer.parseInt(request.getParameter("size"));
         }
 
-        model.addAttribute("events", eventsRepository.findAll(PageRequest.of(page, size)));
+        model.addAttribute("events", eventsRepository.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC,"date"))));
 
 
 
