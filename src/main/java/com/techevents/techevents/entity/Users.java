@@ -22,10 +22,12 @@ public class Users implements Serializable {
     @NotEmpty
     public String surname;
     @NotEmpty
-    private String phone;
+    private int phone;
     @NotEmpty
     @Email
+    @Column(unique = true)
     private String email;
+    @Column(unique = true)
     private String username;
     private String password;
     private Boolean admin;
@@ -73,11 +75,11 @@ public class Users implements Serializable {
         this.surname = surname;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
@@ -136,7 +138,7 @@ public class Users implements Serializable {
                 '}';
     }
 
-    public Users(Long id, String name, String surname, String phone, String email, String username, String password, Boolean admin, Set<Events> events) {
+    public Users(Long id, String name, String surname, int phone, String email, String username, String password, Boolean admin, Set<Events> events) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -147,6 +149,13 @@ public class Users implements Serializable {
         this.admin = admin;
         this.events = events;
     }
+    public Users(String name, String surname, int phone, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.email = email;
+    }
+
 
     public Users(Long id) {
         super();

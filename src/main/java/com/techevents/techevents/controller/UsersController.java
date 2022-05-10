@@ -17,7 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/views/users")
@@ -107,15 +106,15 @@ public class UsersController {
     }
 
     @GetMapping("/")
-    public String listarUsers(Model model){
-        List<Users> listadoUsers = usersService.listarTodos();
+    public String findAllUsers(Model model){
+        List<Users> listadoUsers = usersService.findAll();
 
         model.addAttribute("titulo", "Lista de usuarios");
         model.addAttribute("users", listadoUsers);
-        return"/views/users/listar";
+        return "/views/admin/listUsers";
     }
     @GetMapping("/create")
-    public String crear (Model model) {
+    public String createANewUser (Model model) {
 
         Users users = new Users();
         /*List<Users> listUsers= usersService.listaUsers();*/
@@ -127,7 +126,7 @@ public class UsersController {
         return "/views/users/frmUsers";
     }
     @PostMapping("/save")
-    public String guardar(@Valid @ModelAttribute Users users, BindingResult result,
+    public String saveUser(@Valid @ModelAttribute Users users, BindingResult result,
                           Model model, RedirectAttributes attribute){
         /*List<Users> listUsers = usersService.listaUsers();*/
 
@@ -140,20 +139,20 @@ public class UsersController {
             return "/views/users/frmUsers";
         }
 
-        usersService.guardar(users);
+        usersService.save(users);
         System.out.println("Usuario guardado con exito!");
         attribute.addFlashAttribute("sucess","Evento guardado con exito");
         return "redirect:/views/users/";
     }
 
     @GetMapping("/edit/{id}")
-    public String editar (@PathVariable("id") Long idUsers, Model model,
+    public String editUser (@PathVariable("id") Long idUsers, Model model,
                           RedirectAttributes attribute){
 
         Users users = null;
 
         if(idUsers > 0) {
-            users = usersService.buscadorPorId(idUsers);
+            users = usersService.findById(idUsers);
 
             if(users == null){
                 System.out.println("Error: El Id indicado no existe!");
@@ -177,11 +176,11 @@ public class UsersController {
     }
 
     @GetMapping("/delete/{id}")
-    public String eliminar (@PathVariable("id") Long idUsers, RedirectAttributes attribute){
+    public String deleteUser (@PathVariable("id") Long idUsers, RedirectAttributes attribute){
         Users users = null;
 
         if(idUsers > 0) {
-            users = usersService.buscadorPorId(idUsers);
+            users = usersService.findById(idUsers);
 
             if(users == null){
                 System.out.println("Error: El Id indicado no existe!");
@@ -194,7 +193,7 @@ public class UsersController {
             return "redirect:/views/users/";
         }
 
-        usersService.eliminar(idUsers);
+        usersService.delete(idUsers);
         System.out.println("Registro eliminado con éxito!");
         attribute.addFlashAttribute("warning","Registro eliminado con éxito!");
 
