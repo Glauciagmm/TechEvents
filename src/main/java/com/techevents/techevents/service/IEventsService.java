@@ -7,12 +7,10 @@ import java.util.List;
 
 public interface IEventsService {
 
-    public List<Events> listarTodos();
-    public List<Events> listarDestacados();
-    public void guardar(Events events);
-    public Events buscadorPorId(Long id);
-    public void eliminar(Long id);
-
-
-    List<Users> listaUsers();
+    public List<Events> findAll();
+    public List<Events> listFeatured();
+    public void save(Events events);
+    public Events findById(Long id);
+    public void delete(Long id);
+    List<Users> listUsers();
 }

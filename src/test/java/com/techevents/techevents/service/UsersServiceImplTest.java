@@ -46,7 +46,7 @@ class UsersServiceImplTest {
         Users users = new Users(
                 "glaucia",
                 "mesquita",
-                123456789,
+                "123456789",
                 "glaucia@glaucia.com"
         );
         //when

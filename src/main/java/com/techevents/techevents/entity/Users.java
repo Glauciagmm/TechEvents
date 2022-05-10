@@ -22,7 +22,7 @@ public class Users implements Serializable {
     @NotEmpty
     public String surname;
     @NotEmpty
-    private int phone;
+    private String phone;
     @NotEmpty
     @Email
     @Column(unique = true)
@@ -30,7 +30,6 @@ public class Users implements Serializable {
     @Column(unique = true)
     private String username;
     private String password;
-    private Boolean admin;
     private String role = "ROLE_USER";
     @ManyToMany (fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
@@ -75,11 +74,11 @@ public class Users implements Serializable {
         this.surname = surname;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -89,14 +88,6 @@ public class Users implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Boolean getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(Boolean admin) {
-        this.admin = admin;
     }
 
     public String getUsername() {
@@ -133,12 +124,11 @@ public class Users implements Serializable {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", admin=" + admin +
                 ", events=" + events +
                 '}';
     }
 
-    public Users(Long id, String name, String surname, int phone, String email, String username, String password, Boolean admin, Set<Events> events) {
+    public Users(Long id, String name, String surname, String phone, String email, String username, String password, Boolean admin, Set<Events> events) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -146,10 +136,9 @@ public class Users implements Serializable {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.admin = admin;
         this.events = events;
     }
-    public Users(String name, String surname, int phone, String email) {
+    public Users(String name, String surname, String phone, String email) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
