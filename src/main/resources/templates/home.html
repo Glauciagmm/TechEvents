@@ -20,11 +20,11 @@
                     <h2 th:text="${cl.name}"></h2>
                     <p th:text="${cl.description}"></p>
                     <p th:text="${cl.date}" class="time">
-                        fecha de evento
+                        Date
                     </p>
                     <div class="card-read-more signup">
                     <a th:if="${cl.vacants}>${cl.signed}" th:href="@{/views/users/userEventAdd/}+${cl.id}" class="text-white btn btn-link btn-block">
-                        Apuntate!
+                        Sign up!
                     </a>
                     <a th:unless="${cl.vacants}>${cl.signed}" class="btn btn-link btn-block text-danger">
                             Lleno!
@@ -99,25 +99,25 @@
                                     <span th:text="${eventsList.name}"></span>
                                 </h4>
                                 <h5 th:text="${eventsList.type}" class="">
-                                    Tipo de evento
+                                    Type of Event
                                 </h5>
                                 <p th:text="${eventsList.description}" class="">
-                                    Descripcion evento
+                                    Event's description
                                 </p>
                                 <p th:text="${eventsList.date}" class="time">
-                                    fecha de evento
+                                    Date of Event
                                 </p>
                                 <span>
-                                    Apuntados:
+                                    Signed up:
                                 </span>
                                 <span th:text="${eventsList.signed}" class="">
-                                    plazas
+                                    Vacant
                                 </span>
                                 <span>
                                      /
                                 </span>
                                 <span th:text="${eventsList.vacants}" class="">
-                                    plazas
+                                    Vacant
                                 </span>
                             </div>
                             <div class="card-read-more signup">
@@ -127,10 +127,10 @@
                                 </a>
                                 -->
                                 <a th:if="${eventsList.vacants}>${eventsList.signed}" th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">
-                                    Apuntate!
+                                    Sign up!
                                 </a>
                                 <a th:unless="${eventsList.vacants}>${eventsList.signed}" class="btn btn-link btn-block text-danger">
-                                    Lleno!
+                                    Full!
                                 </a>
                             </div>
                         </div>

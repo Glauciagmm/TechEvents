@@ -123,10 +123,10 @@ public class EventsController {
     }
     @GetMapping("/users")
     public String findAllUsers(Model model){
-        List<Users> listadoUsers = usersService.findAll();
+        List<Users> listOfUsers = usersService.findAll();
 
         model.addAttribute("title", "List of users");
-        model.addAttribute("users", listadoUsers);
+        model.addAttribute("users", listOfUsers);
         return "/views/admin/listUsers";
     }
 
