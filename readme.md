@@ -12,9 +12,11 @@ On the other hand, the student can register and log himself in the webpage, whil
 
 The tools used for this project were:
 
--Trello
--Figma
--IntelliJ Idea
--PHP MySQL
--Thymeleaf
--Heroku
+Where are bullets most often used?
+
+. Trello
+. Figma
+. IntelliJ Idea
+. PHP MySQL
+. Thymeleaf
+. Heroku
