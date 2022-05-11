@@ -14,9 +14,14 @@ The tools used for this project were:
 
 Where are bullets most often used?
 
-. Trello
-. Figma
-. IntelliJ Idea
-. PHP MySQL
-. Thymeleaf
-. Heroku
+- Trello
+
+- Figma
+
+- IntelliJ Idea
+
+- PHP MySQL
+
+- Thymeleaf
+
+- Heroku
