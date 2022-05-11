@@ -25,10 +25,11 @@ public class Users implements Serializable {
     private String phone;
     @NotEmpty
     @Email
+    @Column(unique = true)
     private String email;
+    @Column(unique = true)
     private String username;
     private String password;
-    private Boolean admin;
     private String role = "ROLE_USER";
     @ManyToMany (fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
@@ -89,14 +90,6 @@ public class Users implements Serializable {
         this.email = email;
     }
 
-    public Boolean getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(Boolean admin) {
-        this.admin = admin;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -131,7 +124,6 @@ public class Users implements Serializable {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", admin=" + admin +
                 ", events=" + events +
                 '}';
     }
@@ -144,9 +136,15 @@ public class Users implements Serializable {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.admin = admin;
         this.events = events;
     }
+    public Users(String name, String surname, String phone, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.email = email;
+    }
+
 
     public Users(Long id) {
         super();

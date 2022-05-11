@@ -17,7 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/views/users")
@@ -66,18 +65,18 @@ public class UsersController {
 
     @GetMapping("/userEventAdd/{id}")
     public String userEventAdd(Authentication auth, @PathVariable("id") Long idEvent){
-        Events event = eventsService.buscadorPorId(idEvent);
+        Events event = eventsService.findById(idEvent);
 
         String username = auth.getName();
         Users user = usersService.findByUsername(username);
 
         if (user.getEvents().contains(event)){
-            System.out.println("Evento duplicado!");
+            System.out.println("Duplicated Event!");
         }
         else{
             event.setSigned(event.getSigned()+1);
             eventsRepository.save(event);
-            System.out.println("apuntado al evento " + event.getSigned());
+            System.out.println("Signed Up for the event" + event.getSigned());
             user.getEvents().add(event);
             usersRepository.save(user);
         }
@@ -87,7 +86,7 @@ public class UsersController {
 
     @GetMapping("/userEventRemove/{id}")
     public String userEventRemove(Authentication auth, @PathVariable ("id") Long idEvent){
-        Events event = eventsService.buscadorPorId(idEvent);
+        Events event = eventsService.findById(idEvent);
 
         String username = auth.getName();
         Users user = usersService.findByUsername(username);
@@ -95,44 +94,37 @@ public class UsersController {
         if (user.getEvents().contains(event)){
             event.setSigned(event.getSigned()-1);
             eventsRepository.save(event);
-            System.out.println("Eliminado del evento");
+            System.out.println("Event Removed");
             user.getEvents().remove(event);
             usersRepository.save(user);
         }
         else{
-            System.out.println("Evento no encontrado");
+            System.out.println("Event not find");
         }
 
         return "redirect:/views/users/index";
     }
 
-    @GetMapping("/")
-    public String listarUsers(Model model){
-        List<Users> listadoUsers = usersService.listarTodos();
 
-        model.addAttribute("titulo", "Lista de usuarios");
-        model.addAttribute("users", listadoUsers);
-        return"/views/users/listar";
-    }
     @GetMapping("/create")
-    public String crear (Model model) {
+    public String createANewUser (Model model) {
 
         Users users = new Users();
         /*List<Users> listUsers= usersService.listaUsers();*/
 
-        model.addAttribute("titulo", "Form: New User");
+        model.addAttribute("title", "Form: New User");
         model.addAttribute("users", users);
         /* model.addAttribute("users", listUsers);*/
 
         return "/views/users/frmUsers";
     }
     @PostMapping("/save")
-    public String guardar(@Valid @ModelAttribute Users users, BindingResult result,
+    public String saveUser(@Valid @ModelAttribute Users users, BindingResult result,
                           Model model, RedirectAttributes attribute){
-        /*List<Users> listUsers = usersService.listaUsers();*/
+        /*List<Users> listUsers = usersService.listUsers();*/
 
         if (result.hasErrors()){
-            model.addAttribute("titulo", "Form: New Event");
+            model.addAttribute("title", "Form: New Event");
             model.addAttribute("users", users);
             /*model.addAttribute("users", listUsers);*/
             System.out.println("Hubo errores en el formulario");
@@ -140,35 +132,35 @@ public class UsersController {
             return "/views/users/frmUsers";
         }
 
-        usersService.guardar(users);
+        usersService.save(users);
         System.out.println("Usuario guardado con exito!");
         attribute.addFlashAttribute("sucess","Evento guardado con exito");
-        return "redirect:/views/users/";
+        return "redirect:/views/users/index";
     }
 
     @GetMapping("/edit/{id}")
-    public String editar (@PathVariable("id") Long idUsers, Model model,
-                          RedirectAttributes attribute){
+    public String editUser (@PathVariable("id") Long idUsers, Model model,
+                            RedirectAttributes attribute){
 
         Users users = null;
 
         if(idUsers > 0) {
-            users = usersService.buscadorPorId(idUsers);
+            users = usersService.findById(idUsers);
 
             if(users == null){
-                System.out.println("Error: El Id indicado no existe!");
-                attribute.addFlashAttribute("error","Atención: El Id indicado no existe!");
-                return "redirect:/views/users/";
+                System.out.println("Error: The indicated Id doesn't exist!");
+                attribute.addFlashAttribute("error","Attention: The indicated Id doesn't exist!");
+                return "redirect:/views/users/index";
             }
         }else {
-            System.out.println("Error: Hay un error con el Id!");
-            attribute.addFlashAttribute("error","Atención: error con el Id!");
-            return "redirect:/views/users/";
+            System.out.println("Error:Errors with the Id!");
+            attribute.addFlashAttribute("error","Attention: Errors with the Id");
+            return "redirect:/views/users/index";
         }
 
-        /*List<Users> listUsers = usersService.listaUsers();*/
+        /*List<Users> listUsers = usersService.listUsers();*/
 
-        model.addAttribute("titulo", "Form: Edit User");
+        model.addAttribute("title", "Form: Edit User");
         model.addAttribute("users", users);
         /* model.addAttribute("users", listUsers);*/
 
@@ -177,27 +169,27 @@ public class UsersController {
     }
 
     @GetMapping("/delete/{id}")
-    public String eliminar (@PathVariable("id") Long idUsers, RedirectAttributes attribute){
+    public String delete (@PathVariable("id") Long idUsers, RedirectAttributes attribute){
         Users users = null;
 
         if(idUsers > 0) {
-            users = usersService.buscadorPorId(idUsers);
+            users = usersService.findById(idUsers);
 
             if(users == null){
-                System.out.println("Error: El Id indicado no existe!");
-                attribute.addFlashAttribute("error","Atención: El Id indicado no existe!");
-                return "redirect:/views/users/";
+                System.out.println("Error:The indicated Id doesn't exist!");
+                attribute.addFlashAttribute("error","Attention: The indicated Id doesn't exist!");
+                return "redirect:/views/users/index";
             }
         }else {
-            System.out.println("Error: Hay un error con el Id!");
-            attribute.addFlashAttribute("error","Atención: error con el Id!");
-            return "redirect:/views/users/";
+            System.out.println("Error: Error with the Id");
+            attribute.addFlashAttribute("error","Attention: error with the Id!");
+            return "redirect:/views/users/index";
         }
 
-        usersService.eliminar(idUsers);
-        System.out.println("Registro eliminado con éxito!");
-        attribute.addFlashAttribute("warning","Registro eliminado con éxito!");
+        usersService.delete(idUsers);
+        System.out.println("Successfully deleted!");
+        attribute.addFlashAttribute("warning","Successfully deleted!");
 
-        return "redirect:/views/users/";
+        return "redirect:/views/users/index";
     }
 }

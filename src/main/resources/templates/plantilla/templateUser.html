@@ -22,10 +22,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" th:href="@{/index}">Inicio</a>
+                            <a class="nav-link active" aria-current="page" th:href="@{/index}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/views/users/}">Mis Eventos</a>
+                            <a class="nav-link" th:href="@{/views/users/}">My Events</a>
                         </li>
                     </ul>
                 </div>
@@ -61,12 +61,8 @@
 </div>
 
 <!-- Pie de página -->
-<footer th:fragment="footer" class="bg-dark text-center text-white fixed-bottom" >
-    <div class="container">
-        <p>Copiright JavaCode503 &copy; -2019</p>
-    </div>
-    <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
-</footer>
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<footer th:replace="plantilla/template :: footer"></footer>
 
 </body>
 

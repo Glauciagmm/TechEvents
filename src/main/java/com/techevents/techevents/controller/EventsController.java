@@ -25,102 +25,110 @@ public class EventsController {
         @Autowired
         private IUsersService usersService;
 
-        @GetMapping("/")
-        public String listarEvents(Model model){
-            List<Events> listadoEvents = eventsService.listarTodos();
+    @GetMapping("/")
+    public String listEvents(Model model){
+        List<Events> listOfEvents = eventsService.findAll();
 
-            model.addAttribute("titulo", "Lista de Events");
-            model.addAttribute("events", listadoEvents);
-            return "/views/admin/listar";
-        }
+        model.addAttribute("title", "List of Events");
+        model.addAttribute("events", listOfEvents);
+        return "/views/admin/list";
+    }
 
-        @GetMapping("/create")
-        public String crear (Model model){
+    @GetMapping("/create")
+    public String createNewEvent (Model model){
 
-            Events events = new Events();
-            /*List<Users> listUsers= usersService.listaUsers();*/
+        Events events = new Events();
+        /*List<Users> listUsers= usersService.listUsers();*/
 
-            model.addAttribute("titulo", "Form: New Event");
+        model.addAttribute("title", "Form: New Event");
+        model.addAttribute("events", events);
+        /* model.addAttribute("users", listUsers);*/
+
+        return "/views/admin/frmCreate";
+    }
+
+    @PostMapping("/save")
+    public String saveEvent(@Valid @ModelAttribute Events events, BindingResult result,
+                            Model model, RedirectAttributes attribute){
+        /*List<Users> listUsers = usersService.listUsers();*/
+
+        if (result.hasErrors()){
+            model.addAttribute("title", "Form: New Event");
             model.addAttribute("events", events);
-           /* model.addAttribute("users", listUsers);*/
+            /*model.addAttribute("users", listUsers);*/
+            System.out.println("Errors with the form");
 
-            return "/views/admin/frmCrear";
+            return "/views/admin/frmCreate";
         }
 
-        @PostMapping("/save")
-        public String guardar(@Valid @ModelAttribute Events events, BindingResult result,
-                              Model model, RedirectAttributes attribute){
-            /*List<Users> listUsers = usersService.listaUsers();*/
+        eventsService.save(events);
+        System.out.println("Successfully saved!");
+        attribute.addFlashAttribute("success","Successfully saved");
+        return "redirect:/views/admin/";
+    }
 
-            if (result.hasErrors()){
-                model.addAttribute("titulo", "Form: New Event");
-                model.addAttribute("events", events);
-                /*model.addAttribute("users", listUsers);*/
-                System.out.println("Hubo errores en el formulario");
+    @GetMapping("/edit/{id}")
+    public String editEvent (@PathVariable("id") Long idEvents, Model model,
+                             RedirectAttributes attribute){
 
-                return "/views/admin/frmCrear";
+        Events events = null;
+
+        if(idEvents > 0) {
+            events = eventsService.findById(idEvents);
+
+            if(events == null){
+                System.out.println("Error: The ID doesn't exist!");
+                attribute.addFlashAttribute("error","Attention: The ID doesn't exist!");
+                return "redirect:/views/admin/";
             }
-
-           eventsService.guardar(events);
-            System.out.println("Evento guardado con exito!");
-            attribute.addFlashAttribute("sucess","Evento guardado con exito");
+        }else {
+            System.out.println("Error: Problem whit ID!");
+            attribute.addFlashAttribute("error","Attention: Error with the indicate ID!");
             return "redirect:/views/admin/";
         }
 
-        @GetMapping("/edit/{id}")
-        public String editar (@PathVariable("id") Long idEvents, Model model,
-                              RedirectAttributes attribute){
+        /*List<Users> listUsers = usersService.listUsers();*/
 
-            Events events = null;
+        model.addAttribute("title", "Form: Edit Event");
+        model.addAttribute("events", events);
+        /* model.addAttribute("users", listUsers);*/
 
-            if(idEvents > 0) {
-                events = eventsService.buscadorPorId(idEvents);
 
-                if(events == null){
-                    System.out.println("Error: El Id indicado no existe!");
-                    attribute.addFlashAttribute("error","Atención: El Id indicado no existe!");
-                    return "redirect:/views/admin/";
-                }
-            }else {
-                System.out.println("Error: Hay un error con el Id!");
-                attribute.addFlashAttribute("error","Atención: error con el Id!");
+        return "/views/admin/frmCreate";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteEvent (@PathVariable("id") Long idEvents, RedirectAttributes attribute){
+        Events events = null;
+
+        if(idEvents > 0) {
+            events = eventsService.findById(idEvents);
+
+            if(events == null){
+                System.out.println("Error: The ID doesn't not exist!");
+                attribute.addFlashAttribute("error","Attention: The ID doesn't exist!");
                 return "redirect:/views/admin/";
             }
-
-            /*List<Users> listUsers = usersService.listaUsers();*/
-
-            model.addAttribute("titulo", "Form: Edit Event");
-            model.addAttribute("events", events);
-           /* model.addAttribute("users", listUsers);*/
-
-
-            return "/views/admin/frmCrear";
-        }
-
-        @GetMapping("/delete/{id}")
-        public String eliminar (@PathVariable("id") Long idEvents, RedirectAttributes attribute){
-            Events events = null;
-
-            if(idEvents > 0) {
-                events = eventsService.buscadorPorId(idEvents);
-
-                if(events == null){
-                    System.out.println("Error: El Id indicado no existe!");
-                    attribute.addFlashAttribute("error","Atención: El Id indicado no existe!");
-                    return "redirect:/views/admin/";
-                }
-            }else {
-                System.out.println("Error: Hay un error con el Id!");
-                attribute.addFlashAttribute("error","Atención: error con el Id!");
-                return "redirect:/views/admin/";
-            }
-
-            eventsService.eliminar(idEvents);
-            System.out.println("Registro eliminado con éxito!");
-            attribute.addFlashAttribute("warning","Registro eliminado con éxito!");
-
+        }else {
+            System.out.println("Error: Error with the indicated ID!");
+            attribute.addFlashAttribute("error","Attention: Error with the indicated ID!");
             return "redirect:/views/admin/";
         }
+
+        eventsService.delete(idEvents);
+        System.out.println("Successfully Removed!");
+        attribute.addFlashAttribute("warning","Successfully Removed!");
+
+        return "redirect:/views/admin/";
+    }
+    @GetMapping("/users")
+    public String findAllUsers(Model model){
+        List<Users> listadoUsers = usersService.findAll();
+
+        model.addAttribute("title", "List of users");
+        model.addAttribute("users", listadoUsers);
+        return "/views/admin/listUsers";
+    }
 
 }
 

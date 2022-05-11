@@ -34,18 +34,18 @@ public class HomeController {
 
     @GetMapping({"/index", "/home", "/"})
     public String index(Model model, Authentication auth){
-        List<Events> listadoEvents = eventsService.listarTodos();
+        List<Events> listOfEvents = eventsService.findAll();
 
-        model.addAttribute("titulo", "Listado de Eventos");
-        model.addAttribute("events", listadoEvents);
+        model.addAttribute("title", "List of Events");
+        model.addAttribute("events", listOfEvents);
 
         boolean isLoggedIn = false;
         if (auth != null){
             isLoggedIn = true;
         }
         model.addAttribute("isLoggedIn", isLoggedIn);
-        List<Events> listadoDestacados = eventsService.listarDestacados();
-        model.addAttribute("destacados", listadoDestacados);
+        List<Events> listOfFeatured = eventsService.listFeatured();
+        model.addAttribute("featured", listOfFeatured);
 
         return "home";
     }

@@ -16,31 +16,34 @@ public class UsersServiceImpl implements IUsersService{
     BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    private UsersRepository usersRepository;
+    public UsersRepository usersRepository;
+
+    public UsersServiceImpl(UsersRepository usersRepository) {
+    }
 
     @Override
-    public List<Users> listarTodos() {
+    public List<Users> findAll() {
         return (List<Users>)usersRepository.findAll();}
 
     @Override
-    public void guardar (Users users){
+    public void save (Users users){
         users.setPassword(passwordEncoder.encode(users.getPassword()));
         usersRepository.save(users);
     }
 
     @Override
-    public Users buscadorPorId(Long id){
+    public Users findById(Long id){
 
         return usersRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void eliminar(Long id){
+    public void delete(Long id){
         usersRepository.deleteById(id);
     }
 
     @Override
-    public List<Events> listaEvents(){
+    public List<Events> listEvents(){
         return null;
     }
 
@@ -49,4 +52,6 @@ public class UsersServiceImpl implements IUsersService{
         return usersRepository.findByUsername(username);
     }
 
+    public void saveUser() {
+    }
 }
