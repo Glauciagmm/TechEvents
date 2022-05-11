@@ -36,6 +36,7 @@ public class Users implements Serializable {
             name = "class",
             joinColumns = @JoinColumn(name= "id_users"),
             inverseJoinColumns = @JoinColumn (name="id_events"))
+    @OrderBy("date DESC")
 
     private Set<Events> events;
 
