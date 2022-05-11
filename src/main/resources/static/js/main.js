@@ -7,7 +7,7 @@ function cambio(){
         let str = Date.parse(messages[i].innerHTML) - new Date;
         let str2 = msToTime(str);
         if (str <0){
-            str3[i].innerHTML = '<a th:unless="${eventsList.vacants}>${eventsList.signed}" class="btn btn-link btn-block text-danger">Caducado</a>'
+            str3[i].innerHTML = '<a th:unless="${eventsList.vacants}>${eventsList.signed}" class="btn btn-link btn-block text-danger">Expired</a>'
         }
         messages[i].innerHTML = str2;
     }
@@ -19,9 +19,15 @@ function msToTime(s) {
     let secs = s % 60;
     s = (s - secs) / 60;
     let mins = s % 60;
-    let hrs = (s - mins) / 60;
+    s = (s - mins)/60
+    let hrs = s % 24;
+    s = (s -hrs)/24;
 
-    return 'Faltan: ' + hrs + 'h:' + mins + 'm:' + secs + 's.';
+    let days = (s);
+
+
+
+    return 'Time left: '+ days +'d, '+ hrs + 'h, ' + mins + 'm, ' + secs + 's. ';
 }
 
 document.addEventListener("DOMContentLoaded", cambio);

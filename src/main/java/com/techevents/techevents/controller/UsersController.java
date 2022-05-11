@@ -110,7 +110,7 @@ public class UsersController {
     public String createANewUser (Model model) {
 
         Users users = new Users();
-        /*List<Users> listUsers= usersService.listaUsers();*/
+        /*List<Users> listUsers= usersService.listUsers();*/
 
         model.addAttribute("title", "Form: New User");
         model.addAttribute("users", users);
@@ -127,14 +127,14 @@ public class UsersController {
             model.addAttribute("title", "Form: New Event");
             model.addAttribute("users", users);
             /*model.addAttribute("users", listUsers);*/
-            System.out.println("Hubo errores en el formulario");
+            System.out.println("Error with form");
 
             return "/views/users/frmUsers";
         }
 
         usersService.save(users);
-        System.out.println("Usuario guardado con exito!");
-        attribute.addFlashAttribute("sucess","Evento guardado con exito");
+        System.out.println("User Successfully saved!");
+        attribute.addFlashAttribute("success","User Successfully saved!");
         return "redirect:/views/users/index";
     }
 

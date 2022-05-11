@@ -14,7 +14,7 @@
 </div>
 <div class="container">
     <a class="btn btn-primary btn-sm" th:href="@{/views/users/create}"
-       th:text="'New User'" title="Crear nuevo Registro">
+       th:text="'New User'" title="Create new Register">
     </a>
     <table class="table caption-top">
         <caption>Profile</caption>
@@ -42,13 +42,13 @@
 
             <td>
                 <a class="btn btn-success btn-sm" th:href="@{/views/users/edit/}+${cl.id}"
-                   th:text="'Editar'" title="Editar Registro">
+                   th:text="'Edit'" title="Edit Register">
                 </a>
             </td>
             <td>
                 <a class="btn btn-danger btn-sm" th:href="@{/views/users/delete/}+${cl.id}"
-                   th:text="'Eliminar'" title="Eliminar Registro"
-                   onclick="return confirm('Está Seguro de eliminar el registro?')">
+                   th:text="'Delete'" title="Delete Register"
+                   onclick="return confirm('Are you sure to delete this user?')">
                 </a>
             </td>
 
