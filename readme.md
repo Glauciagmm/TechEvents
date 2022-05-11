@@ -12,8 +12,6 @@ On the other hand, the student can register and log himself in the webpage, whil
 
 The tools used for this project were:
 
-Where are bullets most often used?
-
 - Trello
 
 - Figma
