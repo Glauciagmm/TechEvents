@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/templateLogUser :: header"></header>
+<div class="container mt-5 mb-5">
+    <h2 class="text-center display-4 mx-1 my-1 mt-2" th:if="${session.users != null}">Bienvenido/a <span class="font-italic" th:text="${session.users.name}"></span></h2>
+</div>
+<br>
+
+<section th:fragment="events-list" class="wrapper">
+    <div class="container-fostrap p-0">
+        <div>
+            <h2 class="heading display-6">
+                These are the events you have subscribed to...
+            </h2>
+        </div>
+        <div class="content">
+            <div class="container mb-4">
+                <div class="row">
+                    <div th:each="eventsList:${session.users.events}" class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                                <img th:src="${eventsList.img}" />
+                            </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a th:text="${eventsList.name}" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"></a>
+                                </h4>
+                                <h5 th:text="${eventsList.type}" class="">
+                                    Type of Event
+                                </h5>
+                                <p th:text="${eventsList.description}" class="">
+                                    Event's description
+                                </p>
+                                <p th:text="${eventsList.date}" class="time">
+                                    Date of Event
+                                </p>
+                                <span>
+                                    Signed up:
+                                </span>
+                                <span th:text="${eventsList.signed}" class="">
+                                    Vacant
+                                </span>
+                                <span>
+                                     /
+                                </span>
+                                <span th:text="${eventsList.vacants}" class="">
+                                    Vacant
+                                </span>
+                            </div>
+                            <div class="card-read-more signup">
+                                <a th:href="@{/views/users/userEventRemove/}+${eventsList.id}" class="btn btn-link btn-block">
+                                    Cancel your registration
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+<footer th:replace="plantilla/templateUser.html::footer">
+
+</footer>
+
+</body>
+</html>

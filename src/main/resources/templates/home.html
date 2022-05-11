@@ -1,10 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:replace="plantilla/template :: head">
 </head>
 <body>
-    <h1>hola</h1>
+<header th:replace="plantilla/template :: header"></header>
+
+<!-- <div th:replace="plantilla/template :: carousel"></div> -->
+
+
+<br >
+<div class="container">
+    <h2 class="text-center display-4 mx-1 my-1 mt-2">Featured Events</h2>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+            <div th:each="cl:${featured}" th:classappend="${clStat.first} ? active : ''" class="carousel-item">
+                <img th:src="${cl.img}" class="d-block w-100">
+                <div class="carousel-caption bg-dark p-2 text-white bg-opacity-50">
+                    <h2 th:text="${cl.name}"></h2>
+                    <p th:text="${cl.description}"></p>
+                    <p th:text="${cl.date}" class="time">
+                        Date
+                    </p>
+                    <div class="card-read-more signup">
+                    <a th:if="${cl.vacants}>${cl.signed}" th:href="@{/views/users/userEventAdd/}+${cl.id}" class="text-white btn btn-link btn-block">
+                        Sign up!
+                    </a>
+                    <a th:unless="${cl.vacants}>${cl.signed}" class="btn btn-link btn-block text-danger">
+                            Lleno!
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+
+
+<br>
+<!-- <section th:replace="plantilla/template :: events-list"></section> -->
+
+
+
+
+
+
+<section th:fragment="events-list" class="wrapper">
+    <div class="container-fostrap p-0">
+        <div>
+            <h2 class="heading display-6">
+                All Events
+            </h2>
+        </div>
+        <!-- events pagination -->
+        <nav aria-label="Pagination" th:if="${events.totalPages gt 0}">
+            <ul class="pagination justify-content-center font-weight-bold">
+                <li class="page-item" th:classappend="${events.number eq 0} ? 'disabled'">
+                    <a class="page-link"
+                       th:href="@{/?page={id}(id=${events.number lt 2 ? 1 : events.number})}"
+                       aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item" th:classappend="${i eq events.number + 1} ? 'active'"
+                    th:each="i : ${#numbers.sequence( 1, events.totalPages, 1)}">
+                    <a class="page-link" th:href="@{/?page={id}(id=${i})}" th:text="${i}"
+                       th:title="${'Page '+ i}" data-toggle="tooltip"></a>
+                </li>
+                <li class="page-item" th:classappend="${events.number + 1 eq events.totalPages} ? 'disabled'">
+                    <a class="page-link"
+                       th:href="@{/?page={id}(id=${events.number + 2})}"
+                       aria-label="Next" title="Next Page" data-toggle="tooltip">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="container mb-4">
+                <div class="row">
+                    <div th:each="eventsList:${events}" class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <span class="img-card">
+                                <img th:src="${eventsList.img}" />
+                            </span>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <span th:text="${eventsList.name}"></span>
+                                </h4>
+                                <h5 th:text="${eventsList.type}" class="">
+                                    Type of Event
+                                </h5>
+                                <p th:text="${eventsList.description}" class="">
+                                    Event's description
+                                </p>
+                                <p th:text="${eventsList.date}" class="time">
+                                    Date of Event
+                                </p>
+                                <span>
+                                    Signed up:
+                                </span>
+                                <span th:text="${eventsList.signed}" class="">
+                                    Vacant
+                                </span>
+                                <span>
+                                     /
+                                </span>
+                                <span th:text="${eventsList.vacants}" class="">
+                                    Vacant
+                                </span>
+                            </div>
+                            <div class="card-read-more signup">
+                                <!--
+                                <a th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">
+                                    Apuntate!
+                                </a>
+                                -->
+                                <a th:if="${eventsList.vacants}>${eventsList.signed}" th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">
+                                    Sign up!
+                                </a>
+                                <a th:unless="${eventsList.vacants}>${eventsList.signed}" class="btn btn-link btn-block text-danger">
+                                    Full!
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- events pagination -->
+<nav aria-label="Pagination" th:if="${events.totalPages gt 0}">
+    <ul class="pagination justify-content-center font-weight-bold">
+        <li class="page-item" th:classappend="${events.number eq 0} ? 'disabled'">
+            <a class="page-link"
+               th:href="@{/?page={id}(id=${events.number lt 2 ? 1 : events.number})}"
+               aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item" th:classappend="${i eq events.number + 1} ? 'active'"
+            th:each="i : ${#numbers.sequence( 1, events.totalPages, 1)}">
+            <a class="page-link" th:href="@{/?page={id}(id=${i})}" th:text="${i}"
+               th:title="${'Page '+ i}" data-toggle="tooltip"></a>
+        </li>
+        <li class="page-item" th:classappend="${events.number + 1 eq events.totalPages} ? 'disabled'">
+            <a class="page-link"
+               th:href="@{/?page={id}(id=${events.number + 2})}"
+               aria-label="Next" title="Next Page" data-toggle="tooltip">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+<footer th:replace="plantilla/template :: footer"></footer>
 </body>
 </html>
