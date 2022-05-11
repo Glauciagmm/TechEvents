@@ -17,15 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/*
-@Controller
-public class HomeController {
-    @GetMapping({"/index", "/home", "/"})
-    public String index(){
-        return "home";
-    }
-}
-*/
+
 @Controller
 @RequestMapping("/")
 public class HomeController {
@@ -36,25 +28,14 @@ public class HomeController {
     @Autowired
     private EventsRepository eventsRepository;
 
-    @Autowired
-    private IUsersService usersService;
-
     @GetMapping({"/index", "/home", "/"})
-//<<<<<<< HEAD
+
     public String index(HttpServletRequest request, Model model, Authentication auth){
-        //List<Events> listOfEvents = eventsService.findAll();
-
         model.addAttribute("title", "List of Events");
-        //model.addAttribute("events", listOfEvents);
-//=======
-    //public String index(HttpServletRequest request, Model model, Authentication auth){
-        //List<Events> listadoEvents = eventsService.listarTodos();
 
-        //model.addAttribute("titulo", "Listado de Eventos");
-        //model.addAttribute("events", listadoEvents);
 
         int page = 0; //default page number is 0 (yes it is weird)
-        int size = 3; //default page size is 10
+        int size = 6; //default page size is 10
 
         if (request.getParameter("page") != null && !request.getParameter("page").isEmpty()) {
             page = Integer.parseInt(request.getParameter("page")) - 1;
@@ -66,8 +47,6 @@ public class HomeController {
 
         model.addAttribute("events", eventsRepository.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC,"date"))));
 
-
-//>>>>>>> feature/pagination
 
         boolean isLoggedIn = false;
         if (auth != null){

@@ -38,11 +38,9 @@ public class EventsController {
     public String createNewEvent (Model model){
 
         Events events = new Events();
-        /*List<Users> listUsers= usersService.listUsers();*/
 
         model.addAttribute("title", "Form: New Event");
         model.addAttribute("events", events);
-        /* model.addAttribute("users", listUsers);*/
 
         return "/views/admin/frmCreate";
     }
@@ -50,12 +48,10 @@ public class EventsController {
     @PostMapping("/save")
     public String saveEvent(@Valid @ModelAttribute Events events, BindingResult result,
                             Model model, RedirectAttributes attribute){
-        /*List<Users> listUsers = usersService.listUsers();*/
 
         if (result.hasErrors()){
             model.addAttribute("title", "Form: New Event");
             model.addAttribute("events", events);
-            /*model.addAttribute("users", listUsers);*/
             System.out.println("Errors with the form");
 
             return "/views/admin/frmCreate";
@@ -87,11 +83,9 @@ public class EventsController {
             return "redirect:/views/admin/";
         }
 
-        /*List<Users> listUsers = usersService.listUsers();*/
 
         model.addAttribute("title", "Form: Edit Event");
         model.addAttribute("events", events);
-        /* model.addAttribute("users", listUsers);*/
 
 
         return "/views/admin/frmCreate";

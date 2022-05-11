@@ -121,12 +121,10 @@ public class UsersController {
     @PostMapping("/save")
     public String saveUser(@Valid @ModelAttribute Users users, BindingResult result,
                           Model model, RedirectAttributes attribute){
-        /*List<Users> listUsers = usersService.listUsers();*/
 
         if (result.hasErrors()){
             model.addAttribute("title", "Form: New Event");
             model.addAttribute("users", users);
-            /*model.addAttribute("users", listUsers);*/
             System.out.println("Error with form");
 
             return "/views/users/frmUsers";
@@ -158,11 +156,9 @@ public class UsersController {
             return "redirect:/views/users/index";
         }
 
-        /*List<Users> listUsers = usersService.listUsers();*/
 
         model.addAttribute("title", "Form: Edit User");
         model.addAttribute("users", users);
-        /* model.addAttribute("users", listUsers);*/
 
 
         return "/views/users/frmUsers";
