@@ -1,29 +1,42 @@
+# TechEvents 🚀
+
+This is our event management app. Admins can add/remove/edit events and users can subscribe/unsubscribe to attend them.
+
+**Link to project:** https://github.com/Glauciagmm/TechEvents/
+
+**Live Demo:** soon...
+
+![Desktop Image](animation.gif) 
+
+## How It's Made:
+---
+
+**Tech used 🛠️:** Java, Spring, Thymeleaf, HTML, CSS, JavaScript, Bootstrap, MariaDB
+
+With Springboot to power our fullstack app, we made a responsive and modern looking system to manage events.
+
+Our goal is to offer a flexible and dynamic learning environment for our customers, whether they are teachers or students.
+
+This was our first time doing a fullstack app with Java and we managed to deliver in a short time.
+
+## Team
+---
+
 Hi there!
 
 We are: Carol, Patri, Glaucia, Jesús, Martí and Pablo; a group of enthusiastic coders excited about web-designing. On our latest project we have created a web-page for an online web-developing academy.
 
-Our goal is to offer a flexible and dynamic learning environment for our customers, whether they are teachers or students.
+## Optimizations
+---
 
-On this page, we provide several functionalities based on the role of the customer. 
+In order to deliver on time, we had to use javascript to do some little features such as the days/hours left or not allow to sign up if the even expired.
 
-If the teacher logs in to the platform, he could set a maximum number for students on each class and also set the date for which class will take place.
+## Lessons Learned:
+---
 
-On the other hand, the student can register and log himself in the webpage, while also register and un-register himself from courses.
+Springboot makes things much simpler and helps a lot.
 
-The tools used for this project were:
+We like thymeleaf! It's very powerfull and allows us to do a lot of cool stuff.
 
-- Trello
 
-<img src="https://raw.githubuser.com/Glauciagmm/TechEvents/tree/main/src/imgs/Trello1.png">
 
-<img src="https://raw.githubusercontent.com/Glauciagmm/TechEvents/tree/main/src/imgs/Trello2.png">
-
-- Figma
-
-- IntelliJ Idea
-
-- PHP MySQL
-
-- Thymeleaf
-
-- Heroku
