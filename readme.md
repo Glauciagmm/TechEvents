@@ -19,6 +19,9 @@ Our goal is to offer a flexible and dynamic learning environment for our custome
 
 This was our first time doing a fullstack app with Java and we managed to deliver in a short time.
 
+![Desktop Image](trello01.png) 
+![Desktop Image](trello02.png) 
+
 ## Team
 ---
 
