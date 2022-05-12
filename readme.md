@@ -14,6 +14,10 @@ The tools used for this project were:
 
 - Trello
 
+<img src="TechEvents/src/imgs/Trello1.png">
+
+<img src="TechEvents/src/imgs/Trello2.png">
+
 - Figma
 
 - IntelliJ Idea
