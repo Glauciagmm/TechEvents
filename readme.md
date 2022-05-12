@@ -14,9 +14,9 @@ The tools used for this project were:
 
 - Trello
 
-<img src="https://github.com/Glauciagmm/TechEvents/tree/main/src/imgs/Trello1.png">
+<img src="https://raw.githubuser.com/Glauciagmm/TechEvents/tree/main/src/imgs/Trello1.png">
 
-<img src="https://github.com/Glauciagmm/TechEvents/tree/main/src/imgs/Trello2.png">
+<img src="https://raw.githubusercontent.com/Glauciagmm/TechEvents/tree/main/src/imgs/Trello2.png">
 
 - Figma
 
