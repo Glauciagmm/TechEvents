@@ -2,17 +2,13 @@ package com.techevents.techevents.service;
 
 import com.techevents.techevents.entity.Users;
 import com.techevents.techevents.repository.UsersRepository;
-
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-
 import org.mockito.junit.jupiter.MockitoExtension;
-
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.verify;
 
@@ -22,15 +18,16 @@ class UsersServiceImplTest {
     @Mock
     private UsersRepository usersRepository;
 
+    @Mock
+    private BCryptPasswordEncoder passwordEncoder;
+
     private UsersServiceImpl underTest;
 
     @BeforeEach
     void setUp() {
-        underTest = new UsersServiceImpl(usersRepository);
+        underTest = new UsersServiceImpl(usersRepository, passwordEncoder);
 
     }
-
-
 
     @Test
     void canGetAllUsers() {
@@ -43,14 +40,15 @@ class UsersServiceImplTest {
     @Test
     void canSaveUser() {
         //given
-        Users users = new Users(
+        Users user = new Users(
                 "glaucia",
                 "mesquita",
                 "123456789",
                 "glaucia@glaucia.com"
         );
+
         //when
-        underTest.save(users);
+        underTest.save(user);
 
         //then
         ArgumentCaptor<Users> usersArgumentCaptor =
@@ -58,27 +56,34 @@ class UsersServiceImplTest {
 
         verify(usersRepository).save(usersArgumentCaptor.capture());
 
-        Users capturedUsers = (Users) usersArgumentCaptor.getAllValues();
-        assertThat(capturedUsers).isEqualTo(users);
+        Users capturedUsers = usersArgumentCaptor.getValue();
+        assertThat(capturedUsers).isEqualTo(user);
     }
 
     @Test
-    @Disabled
-    void findById() {
+    void canFindUserById() {
+        Users userId = new Users(
+                2L,
+                "glaucia",
+                "mesquita"
+                );
+
+        //when
+        underTest.findById(userId.getId());
+
+        //then
+        verify(usersRepository).findById(2L);
+
     }
 
     @Test
-    @Disabled
-    void delete() {
-    }
-
-    @Test
-    @Disabled
-    void listEvents() {
-    }
-
-    @Test
-    @Disabled
-    void findByUsername() {
+    void canDeleteUser() {
+        Users userDelete  = new Users(
+                1L,
+                "glaucia",
+                "mesquita"
+        );
+        underTest.delete(userDelete.getId());
+        verify(usersRepository).deleteById(1L);
     }
 }

@@ -15,6 +15,10 @@ public class EventsServicesImpl implements IEventsService {
     @Autowired
     private EventsRepository eventsRepository;
 
+    public EventsServicesImpl(EventsRepository eventsRepository) {
+        this.eventsRepository = eventsRepository;
+    }
+
     @Override
     public List<Events> findAll(){
         return (List<Events>) eventsRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));

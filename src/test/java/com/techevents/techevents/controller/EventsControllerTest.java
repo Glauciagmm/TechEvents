@@ -7,22 +7,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class EventsControllerTest {
 
     @Test
-    void listarEvents() {
+    void listEvents() {
     }
 
     @Test
-    void crear() {
+    void create() {
     }
 
     @Test
-    void guardar() {
+    void save() {
     }
 
     @Test
-    void editar() {
+    void edit() {
     }
 
     @Test
-    void eliminar() {
+    void delete() {
     }
 }

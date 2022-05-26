@@ -42,8 +42,12 @@ public class Events implements Serializable {
 
         private Set<Users> users = new HashSet<>() ;
 
+    public Events() {
 
-        public Long getId() {
+    }
+
+
+    public Long getId() {
                 return id;
         }
 
@@ -129,5 +133,23 @@ public class Events implements Serializable {
                         '}';
         }
 
-
+    public Events(String name, String date, String img, int vacants, String description, boolean featured, String type) {
+        this.name = name;
+        this.date = date;
+        this.img = img;
+        this.vacants = vacants;
+        this.description = description;
+        this.featured = featured;
+        this.type = type;
+    }
+    public Events(Long id, String name, String date, String img, int vacants, String description, boolean featured, String type) {
+        this.id = id;
+        this.name = name;
+        this.date = date;
+        this.img = img;
+        this.vacants = vacants;
+        this.description = description;
+        this.featured = featured;
+        this.type = type;
+    }
 }

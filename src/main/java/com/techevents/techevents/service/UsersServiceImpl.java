@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service
 public class UsersServiceImpl implements IUsersService{
-
     @Autowired
     BCryptPasswordEncoder passwordEncoder;
 
@@ -19,7 +18,15 @@ public class UsersServiceImpl implements IUsersService{
     public UsersRepository usersRepository;
 
     public UsersServiceImpl(UsersRepository usersRepository) {
+       this.usersRepository = usersRepository;
     }
+
+    public UsersServiceImpl(UsersRepository usersRepository, BCryptPasswordEncoder passwordEncoder) {
+        this.usersRepository = usersRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    public UsersServiceImpl(){}
 
     @Override
     public List<Users> findAll() {

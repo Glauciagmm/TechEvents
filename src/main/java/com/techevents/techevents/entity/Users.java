@@ -145,7 +145,11 @@ public class Users implements Serializable {
         this.phone = phone;
         this.email = email;
     }
-
+    public Users(Long id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
 
     public Users(Long id) {
         super();
