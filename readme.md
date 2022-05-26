@@ -27,7 +27,15 @@ This was our first time doing a fullstack app with Java and we managed to delive
 
 Hi there!
 
-We are: Carol, Patri, Glaucia, Jesús, Martí and Pablo; a group of enthusiastic coders excited about web-designing. On our latest project we have created a web-page for an online web-developing academy.
+We are a group of enthusiastic coders excited about web-designing. On our latest project we have created a web-page for an online web-developing academy.
+
+- Carol
+- Glaucia: https://github.com/Glauciagmm
+- Jesús: https://github.com/checkmyprojects
+- Martí: https://github.com/Choephel108
+- Pablo: https://github.com/pruizcas
+- Patri: https://github.com/PMuin
+
 
 ## Optimizations
 ---
