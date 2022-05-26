@@ -29,7 +29,7 @@ Hi there!
 
 We are a group of enthusiastic coders excited about web-designing. On our latest project we have created a web-page for an online web-developing academy.
 
-- Carol
+- Carol: https://github.com/ayon79
 - Glaucia: https://github.com/Glauciagmm
 - Jesús: https://github.com/checkmyprojects
 - Martí: https://github.com/Choephel108
